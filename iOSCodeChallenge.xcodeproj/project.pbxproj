@@ -1,0 +1,284 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5B3F74114E22F7300F2B644 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74014E22F7300F2B644 /* UIKit.framework */; };
+		F5B3F74314E22F7300F2B644 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74214E22F7300F2B644 /* Foundation.framework */; };
+		F5B3F74514E22F7300F2B644 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74414E22F7300F2B644 /* CoreGraphics.framework */; };
+		F5B3F74714E22F7300F2B644 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74614E22F7300F2B644 /* CoreData.framework */; };
+		F5B3F74D14E22F7300F2B644 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5B3F74B14E22F7300F2B644 /* InfoPlist.strings */; };
+		F5B3F74F14E22F7300F2B644 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F74E14E22F7300F2B644 /* main.m */; };
+		F5B3F75314E22F7300F2B644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75214E22F7300F2B644 /* AppDelegate.m */; };
+		F5B3F75614E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75414E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F5B3F73C14E22F7300F2B644 /* iOSCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5B3F74014E22F7300F2B644 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F5B3F74214E22F7300F2B644 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F5B3F74414E22F7300F2B644 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F5B3F74614E22F7300F2B644 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F5B3F74A14E22F7300F2B644 /* iOSCodeChallenge-Info.plist */ = {isa = PBXFileReference; path = "iOSCodeChallenge-Info.plist"; sourceTree = "<group>"; };
+		F5B3F74C14E22F7300F2B644 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F5B3F74E14E22F7300F2B644 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F5B3F75014E22F7300F2B644 /* iOSCodeChallenge-Prefix.pch */ = {isa = PBXFileReference; path = "iOSCodeChallenge-Prefix.pch"; sourceTree = "<group>"; };
+		F5B3F75114E22F7300F2B644 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		F5B3F75214E22F7300F2B644 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F5B3F75514E22F7300F2B644 /* iOSCodeChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOSCodeChallenge.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5B3F73914E22F7300F2B644 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5B3F74114E22F7300F2B644 /* UIKit.framework in Frameworks */,
+				F5B3F74314E22F7300F2B644 /* Foundation.framework in Frameworks */,
+				F5B3F74514E22F7300F2B644 /* CoreGraphics.framework in Frameworks */,
+				F5B3F74714E22F7300F2B644 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5B3F73114E22F7200F2B644 = {
+			isa = PBXGroup;
+			children = (
+				F5B3F74814E22F7300F2B644 /* iOSCodeChallenge */,
+				F5B3F73F14E22F7300F2B644 /* Frameworks */,
+				F5B3F73D14E22F7300F2B644 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5B3F73D14E22F7300F2B644 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5B3F73C14E22F7300F2B644 /* iOSCodeChallenge.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5B3F73F14E22F7300F2B644 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5B3F74014E22F7300F2B644 /* UIKit.framework */,
+				F5B3F74214E22F7300F2B644 /* Foundation.framework */,
+				F5B3F74414E22F7300F2B644 /* CoreGraphics.framework */,
+				F5B3F74614E22F7300F2B644 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5B3F74814E22F7300F2B644 /* iOSCodeChallenge */ = {
+			isa = PBXGroup;
+			children = (
+				F5B3F75114E22F7300F2B644 /* AppDelegate.h */,
+				F5B3F75214E22F7300F2B644 /* AppDelegate.m */,
+				F5B3F75414E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld */,
+				F5B3F74914E22F7300F2B644 /* Supporting Files */,
+			);
+			path = iOSCodeChallenge;
+			sourceTree = "<group>";
+		};
+		F5B3F74914E22F7300F2B644 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5B3F74A14E22F7300F2B644 /* iOSCodeChallenge-Info.plist */,
+				F5B3F74B14E22F7300F2B644 /* InfoPlist.strings */,
+				F5B3F74E14E22F7300F2B644 /* main.m */,
+				F5B3F75014E22F7300F2B644 /* iOSCodeChallenge-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5B3F73B14E22F7300F2B644 /* iOSCodeChallenge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5B3F75914E22F7300F2B644 /* Build configuration list for PBXNativeTarget "iOSCodeChallenge" */;
+			buildPhases = (
+				F5B3F73814E22F7300F2B644 /* Sources */,
+				F5B3F73914E22F7300F2B644 /* Frameworks */,
+				F5B3F73A14E22F7300F2B644 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOSCodeChallenge;
+			productName = iOSCodeChallenge;
+			productReference = F5B3F73C14E22F7300F2B644 /* iOSCodeChallenge.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5B3F73314E22F7200F2B644 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = F5B3F73614E22F7200F2B644 /* Build configuration list for PBXProject "iOSCodeChallenge" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F5B3F73114E22F7200F2B644;
+			productRefGroup = F5B3F73D14E22F7300F2B644 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5B3F73B14E22F7300F2B644 /* iOSCodeChallenge */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5B3F73A14E22F7300F2B644 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5B3F74D14E22F7300F2B644 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5B3F73814E22F7300F2B644 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5B3F74F14E22F7300F2B644 /* main.m in Sources */,
+				F5B3F75314E22F7300F2B644 /* AppDelegate.m in Sources */,
+				F5B3F75614E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F5B3F74B14E22F7300F2B644 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5B3F74C14E22F7300F2B644 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F5B3F75714E22F7300F2B644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F5B3F75814E22F7300F2B644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5B3F75A14E22F7300F2B644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSCodeChallenge/iOSCodeChallenge-Prefix.pch";
+				INFOPLIST_FILE = "iOSCodeChallenge/iOSCodeChallenge-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F5B3F75B14E22F7300F2B644 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOSCodeChallenge/iOSCodeChallenge-Prefix.pch";
+				INFOPLIST_FILE = "iOSCodeChallenge/iOSCodeChallenge-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5B3F73614E22F7200F2B644 /* Build configuration list for PBXProject "iOSCodeChallenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5B3F75714E22F7300F2B644 /* Debug */,
+				F5B3F75814E22F7300F2B644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5B3F75914E22F7300F2B644 /* Build configuration list for PBXNativeTarget "iOSCodeChallenge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5B3F75A14E22F7300F2B644 /* Debug */,
+				F5B3F75B14E22F7300F2B644 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F5B3F75414E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F5B3F75514E22F7300F2B644 /* iOSCodeChallenge.xcdatamodel */,
+			);
+			currentVersion = F5B3F75514E22F7300F2B644 /* iOSCodeChallenge.xcdatamodel */;
+			path = iOSCodeChallenge.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F5B3F73314E22F7200F2B644 /* Project object */;
+}
