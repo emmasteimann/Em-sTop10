@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TableViewController.h"
 
 @implementation AppDelegate
 
@@ -18,8 +19,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    TableViewController *table = [[TableViewController alloc] init];
+    table.title = @"Top 10";
+    UINavigationController *localNavigationController = [[UINavigationController alloc] initWithRootViewController:table];
+    
+    self.window.rootViewController = localNavigationController;
+    
+    self.window.backgroundColor = [UIColor redColor];
+    
+    
+//    UIViewController *localViewController = [[UIViewController alloc] init];
+//    localViewController.view.backgroundColor = [UIColor greenColor];
+//    localViewController.title = @"View Controller";
+    
+    
+     
+//    
+    [self.window addSubview:localNavigationController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }

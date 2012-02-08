@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F53F713014E2C5FC0042972D /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F712F14E2C5FC0042972D /* TableViewController.m */; };
 		F5B3F74114E22F7300F2B644 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74014E22F7300F2B644 /* UIKit.framework */; };
 		F5B3F74314E22F7300F2B644 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74214E22F7300F2B644 /* Foundation.framework */; };
 		F5B3F74514E22F7300F2B644 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74414E22F7300F2B644 /* CoreGraphics.framework */; };
@@ -18,16 +19,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F53F712E14E2C5FC0042972D /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		F53F712F14E2C5FC0042972D /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		F5B3F73C14E22F7300F2B644 /* iOSCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B3F74014E22F7300F2B644 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F5B3F74214E22F7300F2B644 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5B3F74414E22F7300F2B644 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F5B3F74614E22F7300F2B644 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		F5B3F74A14E22F7300F2B644 /* iOSCodeChallenge-Info.plist */ = {isa = PBXFileReference; path = "iOSCodeChallenge-Info.plist"; sourceTree = "<group>"; };
+		F5B3F74A14E22F7300F2B644 /* iOSCodeChallenge-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOSCodeChallenge-Info.plist"; sourceTree = "<group>"; };
 		F5B3F74C14E22F7300F2B644 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F5B3F74E14E22F7300F2B644 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F5B3F75014E22F7300F2B644 /* iOSCodeChallenge-Prefix.pch */ = {isa = PBXFileReference; path = "iOSCodeChallenge-Prefix.pch"; sourceTree = "<group>"; };
-		F5B3F75114E22F7300F2B644 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		F5B3F75014E22F7300F2B644 /* iOSCodeChallenge-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSCodeChallenge-Prefix.pch"; sourceTree = "<group>"; };
+		F5B3F75114E22F7300F2B644 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5B3F75214E22F7300F2B644 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F5B3F75514E22F7300F2B644 /* iOSCodeChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOSCodeChallenge.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				F5B3F75114E22F7300F2B644 /* AppDelegate.h */,
+				F53F712E14E2C5FC0042972D /* TableViewController.h */,
+				F53F712F14E2C5FC0042972D /* TableViewController.m */,
 				F5B3F75214E22F7300F2B644 /* AppDelegate.m */,
 				F5B3F75414E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld */,
 				F5B3F74914E22F7300F2B644 /* Supporting Files */,
@@ -161,6 +166,7 @@
 				F5B3F74F14E22F7300F2B644 /* main.m in Sources */,
 				F5B3F75314E22F7300F2B644 /* AppDelegate.m in Sources */,
 				F5B3F75614E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld in Sources */,
+				F53F713014E2C5FC0042972D /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +270,7 @@
 				F5B3F75B14E22F7300F2B644 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
