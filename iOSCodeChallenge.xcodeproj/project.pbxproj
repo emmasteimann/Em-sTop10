@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5291EE214E35C8800D1E1AC /* CustomMovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5291EE114E35C8800D1E1AC /* CustomMovieCell.m */; };
 		F53F713014E2C5FC0042972D /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F712F14E2C5FC0042972D /* TableViewController.m */; };
+		F53F713414E2D2DE0042972D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F713314E2D2DE0042972D /* DetailViewController.m */; };
 		F5B3F74114E22F7300F2B644 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74014E22F7300F2B644 /* UIKit.framework */; };
 		F5B3F74314E22F7300F2B644 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74214E22F7300F2B644 /* Foundation.framework */; };
 		F5B3F74514E22F7300F2B644 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74414E22F7300F2B644 /* CoreGraphics.framework */; };
@@ -15,12 +17,17 @@
 		F5B3F74D14E22F7300F2B644 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5B3F74B14E22F7300F2B644 /* InfoPlist.strings */; };
 		F5B3F74F14E22F7300F2B644 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F74E14E22F7300F2B644 /* main.m */; };
 		F5B3F75314E22F7300F2B644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75214E22F7300F2B644 /* AppDelegate.m */; };
-		F5B3F75614E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75414E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld */; };
+		F5ED76DF14E4F7B4008ECB3B /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ED76DD14E4F7B4008ECB3B /* Movie.m */; };
+		F5ED76E014E4FF5A008ECB3B /* iOSCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75414E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F5291EE014E35C8800D1E1AC /* CustomMovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMovieCell.h; sourceTree = "<group>"; };
+		F5291EE114E35C8800D1E1AC /* CustomMovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMovieCell.m; sourceTree = "<group>"; };
 		F53F712E14E2C5FC0042972D /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		F53F712F14E2C5FC0042972D /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		F53F713214E2D2DE0042972D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		F53F713314E2D2DE0042972D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		F5B3F73C14E22F7300F2B644 /* iOSCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B3F74014E22F7300F2B644 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F5B3F74214E22F7300F2B644 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -33,6 +40,8 @@
 		F5B3F75114E22F7300F2B644 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5B3F75214E22F7300F2B644 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F5B3F75514E22F7300F2B644 /* iOSCodeChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOSCodeChallenge.xcdatamodel; sourceTree = "<group>"; };
+		F5ED76DD14E4F7B4008ECB3B /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		F5ED76DE14E4F7B4008ECB3B /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,9 +91,15 @@
 			isa = PBXGroup;
 			children = (
 				F5B3F75114E22F7300F2B644 /* AppDelegate.h */,
+				F5B3F75214E22F7300F2B644 /* AppDelegate.m */,
+				F53F713214E2D2DE0042972D /* DetailViewController.h */,
+				F53F713314E2D2DE0042972D /* DetailViewController.m */,
+				F5291EE014E35C8800D1E1AC /* CustomMovieCell.h */,
+				F5291EE114E35C8800D1E1AC /* CustomMovieCell.m */,
+				F5ED76DD14E4F7B4008ECB3B /* Movie.m */,
+				F5ED76DE14E4F7B4008ECB3B /* Movie.h */,
 				F53F712E14E2C5FC0042972D /* TableViewController.h */,
 				F53F712F14E2C5FC0042972D /* TableViewController.m */,
-				F5B3F75214E22F7300F2B644 /* AppDelegate.m */,
 				F5B3F75414E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld */,
 				F5B3F74914E22F7300F2B644 /* Supporting Files */,
 			);
@@ -165,8 +180,11 @@
 			files = (
 				F5B3F74F14E22F7300F2B644 /* main.m in Sources */,
 				F5B3F75314E22F7300F2B644 /* AppDelegate.m in Sources */,
-				F5B3F75614E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld in Sources */,
 				F53F713014E2C5FC0042972D /* TableViewController.m in Sources */,
+				F53F713414E2D2DE0042972D /* DetailViewController.m in Sources */,
+				F5291EE214E35C8800D1E1AC /* CustomMovieCell.m in Sources */,
+				F5ED76DF14E4F7B4008ECB3B /* Movie.m in Sources */,
+				F5ED76E014E4FF5A008ECB3B /* iOSCodeChallenge.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

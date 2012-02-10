@@ -27,10 +27,12 @@
     UINavigationController *localNavigationController = [[UINavigationController alloc] initWithRootViewController:table];
     
     self.window.rootViewController = localNavigationController;
-    
     self.window.backgroundColor = [UIColor redColor];
     
-    
+    NSManagedObjectContext *context = [self managedObjectContext];
+	[table setManagedObjectContext:context];
+     
+
 //    UIViewController *localViewController = [[UIViewController alloc] init];
 //    localViewController.view.backgroundColor = [UIColor greenColor];
 //    localViewController.title = @"View Controller";

@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
 @interface TableViewController : UITableViewController
+{
+    NSManagedObjectContext *managedObjectContext;
+    NSMutableArray *movieArray; 
+}
+
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSMutableArray *movieArray; 
 
 @end
