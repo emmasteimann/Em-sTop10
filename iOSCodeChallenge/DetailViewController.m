@@ -10,19 +10,15 @@
 
 @implementation DetailViewController
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
-- (id)initWithTitle:(NSString *)title
+- (id)initWithNSDictionary:(NSDictionary *)detailDictionary
 {
     self = [super init];
     if (self){
-        self.title = title;
+      
+        self.title = [detailDictionary objectForKey:@"filmTitle"];
+        
+        
+        
     }
     return self;
 }

@@ -65,7 +65,8 @@
         NSDictionary* posters = [film objectForKey:@"posters"];
         NSDictionary* abridgedCast = [film objectForKey:@"abridged_cast"];
         NSString* thumbnailPoster = [posters objectForKey:@"thumbnail"];
-        
+        NSString* detailedPoster = [posters objectForKey:@"detailed"];
+        [self writeImageToDirectory:thumbnailPoster withNameOf:filmId];
 //        NSLog(@"Title: %@",filmTitle);
 //        NSLog(@"MPAA Rating: %@",mpaaRating);
 //        NSLog(@"Critic's Score: %@",criticsScore);
@@ -82,12 +83,20 @@
                                         runtime, @"runtime",
                                         synopsis, @"synopsis",
                                         thumbnailPoster, @"thumbnailPoster",
+                                        detailedPoster, @"detailedPoster",
                                         abridgedCast, @"abridgedCast",
                                         nil];
         [movieArray addObject:currentMovie];
     }
     NSLog(@"%d",[movieArray count]);
     [delegate movieListUpdated:movieArray];
+}
+-(void) writeImageToDirectory:(NSString *)imageURL withNameOf:(NSString *)nameString
+{
+    NSURL *url = [NSURL URLWithString:imageURL];
+    NSData *imageData = [NSData dataWithContentsOfURL:url];
+    NSString *imagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.png",nameString]];
+    [imageData writeToFile:imagePath atomically:YES];
 }
 -(void) loadToCoreData:(NSDictionary *)dataToLoad
 {

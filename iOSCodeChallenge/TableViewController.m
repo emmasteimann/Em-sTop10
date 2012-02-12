@@ -46,9 +46,7 @@
     NSLog(@"Table view has launched.");
     tableArray = [[NSArray alloc] init];
     numberOfItems = [tableArray count];
-//    UILabel *unableToLoadLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 10, 300, 20)];
-//    unableToLoadLabel.text = @"Unable to retrieve data...";
-//    [self.tableView addSubview:unableToLoadLabel];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -86,6 +84,10 @@
     tableArray = movieArray;
     numberOfItems = [tableArray count];
     [self.tableView reloadData];
+}
+- (UITableViewCellAccessoryType)tableView:(UITableView *)tv accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellAccessoryDisclosureIndicator;
 }
 //  --- Fun feature for later --- //
 //- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -168,6 +170,11 @@
     
     NSDictionary *currentObject = [tableArray objectAtIndex: indexPath.row];
     NSLog(@"%@",[currentObject objectForKey:@"filmTitle"]);
+    //NSURL *url = [NSURL URLWithString:[currentObject objectForKey:@"thumbnailPoster"]];
+    //UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];
+    NSString *getImagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.png",[currentObject objectForKey:@"filmId"]]];
+    UIImage *image = [UIImage imageWithContentsOfFile:getImagePath];
+    cell.imageView.image = image;
     cell.textLabel.text = [NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]];
     
     return cell;
@@ -219,8 +226,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    NSDictionary *currentObject = [tableArray objectAtIndex: indexPath.row];
-    DetailViewController *detailViewController = [[DetailViewController alloc] initWithTitle:[[NSString alloc] initWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]]];
+    //NSDictionary *currentObject = [tableArray objectAtIndex: indexPath.row];
+//    DetailViewController *detailViewController = [[DetailViewController alloc] initWithTitle:[[NSString alloc] initWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]]];
+    DetailViewController *detailViewController = [[DetailViewController alloc] initWithNSDictionary:[tableArray objectAtIndex: indexPath.row]];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];

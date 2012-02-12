@@ -26,24 +26,18 @@
     TableViewController *table = [[TableViewController alloc] init];
     MovieController *movie = [[MovieController alloc] init];
     [movie setDelegate:table];
-//  TableViewController *table = [[TableViewController alloc] initWithDataController:movie];
-    table.title = @"Top 10";
+    table.title = @"Top 10 Films";
     UINavigationController *localNavigationController = [[UINavigationController alloc] initWithRootViewController:table];
     
+//    UIImage *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"29.png"]];
+//    UINavigationBar *navBar = localNavigationController.navigationBar;
+//    [navBar addSubview:icon];
     self.window.rootViewController = localNavigationController;
     self.window.backgroundColor = [UIColor redColor];
     
     NSManagedObjectContext *context = [self managedObjectContext];
 	[movie setManagedObjectContext:context];
      
-
-//    UIViewController *localViewController = [[UIViewController alloc] init];
-//    localViewController.view.backgroundColor = [UIColor greenColor];
-//    localViewController.title = @"View Controller";
-    
-    
-     
-//    
     [self.window addSubview:localNavigationController.view];
     [self.window makeKeyAndVisible];
     return YES;

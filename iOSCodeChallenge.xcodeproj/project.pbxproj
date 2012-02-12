@@ -18,6 +18,7 @@
 		F5A49E5C14E78C9100B02E89 /* pg.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E5714E78C9100B02E89 /* pg.png */; };
 		F5A49E5D14E78C9100B02E89 /* r.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E5814E78C9100B02E89 /* r.png */; };
 		F5A49E6414E7A1B800B02E89 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A49E6314E7A1B800B02E89 /* Movie.m */; };
+		F5A49E6614E7ABDA00B02E89 /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E6514E7ABDA00B02E89 /* 29.png */; };
 		F5B3F74114E22F7300F2B644 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74014E22F7300F2B644 /* UIKit.framework */; };
 		F5B3F74314E22F7300F2B644 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74214E22F7300F2B644 /* Foundation.framework */; };
 		F5B3F74514E22F7300F2B644 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74414E22F7300F2B644 /* CoreGraphics.framework */; };
@@ -45,6 +46,7 @@
 		F5A49E5814E78C9100B02E89 /* r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = r.png; path = Resources/r.png; sourceTree = "<group>"; };
 		F5A49E6214E7A1B800B02E89 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		F5A49E6314E7A1B800B02E89 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		F5A49E6514E7ABDA00B02E89 /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 29.png; path = Resources/29.png; sourceTree = "<group>"; };
 		F5B3F73C14E22F7300F2B644 /* iOSCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B3F74014E22F7300F2B644 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F5B3F74214E22F7300F2B644 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,6 +83,7 @@
 				F5A49E5414E78C9100B02E89 /* g.png */,
 				F5A49E5514E78C9100B02E89 /* nc_17.png */,
 				F5A49E5614E78C9100B02E89 /* pg_13.png */,
+				F5A49E6514E7ABDA00B02E89 /* 29.png */,
 				F5A49E5714E78C9100B02E89 /* pg.png */,
 				F5A49E5814E78C9100B02E89 /* r.png */,
 			);
@@ -216,6 +219,7 @@
 				F5A49E5B14E78C9100B02E89 /* pg_13.png in Resources */,
 				F5A49E5C14E78C9100B02E89 /* pg.png in Resources */,
 				F5A49E5D14E78C9100B02E89 /* r.png in Resources */,
+				F5A49E6614E7ABDA00B02E89 /* 29.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

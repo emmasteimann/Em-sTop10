@@ -10,6 +10,6 @@
 
 @interface DetailViewController : UIViewController
 
-- (id)initWithTitle:(NSString *)title;
+- (id)initWithNSDictionary:(NSDictionary *)detailDictionary;
 
 @end
