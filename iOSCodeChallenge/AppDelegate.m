@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TableViewController.h"
+#import "MovieController.h"
 
 @implementation AppDelegate
 
@@ -21,7 +22,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Override point for customization after application launch.
-    
+    MovieController *movie = [[MovieController alloc] init];
     TableViewController *table = [[TableViewController alloc] init];
     table.title = @"Top 10";
     UINavigationController *localNavigationController = [[UINavigationController alloc] initWithRootViewController:table];
@@ -30,7 +31,7 @@
     self.window.backgroundColor = [UIColor redColor];
     
     NSManagedObjectContext *context = [self managedObjectContext];
-	[table setManagedObjectContext:context];
+	[movie setManagedObjectContext:context];
      
 
 //    UIViewController *localViewController = [[UIViewController alloc] init];

@@ -7,15 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Movie.h"
 
 @interface TableViewController : UITableViewController
 {
-    NSManagedObjectContext *managedObjectContext;
-    NSMutableArray *movieArray; 
+    int numberOfItems;
+    BOOL addItemsTrigger;
 }
-
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) NSMutableArray *movieArray; 
 
 @end
