@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="10J869" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Movie" representedClassName="Movie" syncable="YES">
+        <attribute name="abridgedCast" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="criticsRating" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="criticsScore" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="mpaaRating" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="runtime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="synopsis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailPoster" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" defaultValueString="Movie Title" spotlightIndexingEnabled="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Movie" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="Movie" positionX="160" positionY="192" width="128" height="195"/>
     </elements>
 </model>

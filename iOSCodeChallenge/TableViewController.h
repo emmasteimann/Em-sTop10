@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MovieController.h"
 
-@interface TableViewController : UITableViewController
+@interface TableViewController : UITableViewController <MovieControllerDelegate>
 {
     int numberOfItems;
     BOOL addItemsTrigger;
+    NSArray *tableArray;
 }
+
+@property (nonatomic, retain) NSArray *tableArray; 
 
 @end

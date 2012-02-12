@@ -22,8 +22,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Override point for customization after application launch.
-    MovieController *movie = [[MovieController alloc] init];
+    
     TableViewController *table = [[TableViewController alloc] init];
+    MovieController *movie = [[MovieController alloc] init];
+    [movie setDelegate:table];
+//  TableViewController *table = [[TableViewController alloc] initWithDataController:movie];
     table.title = @"Top 10";
     UINavigationController *localNavigationController = [[UINavigationController alloc] initWithRootViewController:table];
     

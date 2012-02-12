@@ -12,7 +12,7 @@
 
 @implementation MovieController
 
-@synthesize managedObjectContext, movieArray; 
+@synthesize managedObjectContext, movieArray, delegate; 
 
 - (id) init
 {
@@ -28,47 +28,107 @@
 }
 
 - (void)fetchedData:(NSData *)responseData {
-    NSLog(@"Request comlpete. Handling data."); 
+    NSLog(@"Request complete. Handling data."); 
     //NSString *jsonData = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
     
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData //1
-                                                         options:kNilOptions 
-                                                           error:&error];
+    movieArray = [[NSMutableArray alloc] initWithCapacity:10];
+    NSError *parseError = nil;
+    NSDictionary *json;
+    @try 
+    {
+        json = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&parseError];
+    }
+    @catch (NSException *exception) 
+    {
+        // Print exception information
+        NSLog(@"NSException caught" );
+        NSLog(@"Name: %@", exception.name);
+        NSLog(@"Reason: %@", exception.reason);
+        return;
+    }
+
     NSArray* moviesJson = [json objectForKey:@"movies"];
-    //    NSDictionary* movies = [NSDictionary dictionaryWithObjectsAndKeys: 
-    //                            [json objectForKey:@"movies"], @"movies",
-    //                            nil];
-    //    NSDictionary* films = [movies objectForKey:@"movies"];
     NSLog(@"%u",[moviesJson count]);
     
-    for(int n = 1; n < [moviesJson count]; n = n + 1){
+    for(int n = 0; n < [moviesJson count]; n = n + 1){
+
+        NSDictionary* film = [moviesJson objectAtIndex:n];
+        
+        NSString* filmId = [film objectForKey:@"id"];
+        NSString* filmTitle = [film objectForKey:@"title"];
+        NSString* mpaaRating = [film objectForKey:@"mpaa_rating"];
+        NSDictionary* ratings = [film objectForKey:@"ratings"];
+        NSString* criticsScore = [ratings objectForKey:@"critics_score"];
+        NSString* criticsRating = [ratings objectForKey:@"critics_rating"];
+        NSString* runtime = [film objectForKey:@"runtime"];
+        NSString* synopsis = [film objectForKey:@"synopsis"];
+        NSDictionary* posters = [film objectForKey:@"posters"];
+        NSDictionary* abridgedCast = [film objectForKey:@"abridged_cast"];
+        NSString* thumbnailPoster = [posters objectForKey:@"thumbnail"];
+        
+//        NSLog(@"Title: %@",filmTitle);
+//        NSLog(@"MPAA Rating: %@",mpaaRating);
+//        NSLog(@"Critic's Score: %@",criticsScore);
+//        NSLog(@"Critic's Rating: %@",criticsRating);
+//        //NSLog(@"%@",film);
+//        NSLog(@"------------------------------");
+        
+        NSDictionary* currentMovie = [NSDictionary dictionaryWithObjectsAndKeys: 
+                                        filmId, @"filmId",
+                                        filmTitle, @"filmTitle",
+                                        mpaaRating, @"mpaaRating",
+                                        criticsScore, @"criticsScore",
+                                        criticsRating, @"criticsRating",
+                                        runtime, @"runtime",
+                                        synopsis, @"synopsis",
+                                        thumbnailPoster, @"thumbnailPoster",
+                                        abridgedCast, @"abridgedCast",
+                                        nil];
+        [movieArray addObject:currentMovie];
+    }
+    NSLog(@"%d",[movieArray count]);
+    [delegate movieListUpdated:movieArray];
+}
+-(void) loadToCoreData:(NSDictionary *)dataToLoad
+{
+    
+    NSEntityDescription *entity =
+    [NSEntityDescription entityForName:@"Movie"
+                inManagedObjectContext:managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+//    NSPredicate *predicate =
+//    [NSPredicate predicateWithFormat:@"title == %@", filmTitle];
+//    [request setPredicate:predicate];
+    
+    NSError *requestError = nil;
+    NSUInteger numberOfRecords = [managedObjectContext countForFetchRequest:request error:&requestError];
+    
+    NSLog(@"Number of records %u", numberOfRecords);
+    //[movieList setTitle: filmTitle]; 
+    
+    if (numberOfRecords == 0) {
         Movie *movieList = (Movie *)[NSEntityDescription insertNewObjectForEntityForName:@"Movie" inManagedObjectContext:managedObjectContext];
         
-        NSDictionary* film = [moviesJson objectAtIndex:n];
-        NSString* filmTitle = [film objectForKey:@"title"];
-        NSLog(@"-------------------------------START---------------------------");
-        NSLog(@"%@",filmTitle);
-        NSLog(@"-------------------------------END---------------------------");
         
-        
-        [movieList setTitle: filmTitle]; 
-        NSError *error;
-        
-        if(![managedObjectContext save:&error]){
-            
-            //This is a serious error saying the record
-            //could not be saved. Advise the user to
-            //try again or restart the application. 
-            
-        }
-        [movieArray addObject:movieList];
-        NSLog(@"%@",movieList);
     }
-    NSLog(@"%@",movieArray);
+    else {
+        // Deal with error.
+    }
     
+    NSError *error;
+    
+    if(![managedObjectContext save:&error]){
+        
+        NSLog(@"Your Managed Object blew its shit...");
+        //This is a serious error saying the record
+        //could not be saved. Advise the user to
+        //try again or restart the application. 
+        
+    }
 }
-
 @end
 
 @interface NSDictionary(JSONCategories)

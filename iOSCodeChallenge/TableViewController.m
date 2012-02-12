@@ -9,9 +9,10 @@
 #import "TableViewController.h"
 #import "DetailViewController.h"
 #import "CustomMovieCell.h"
-#import "MovieController.h"
 
 @implementation TableViewController
+
+@synthesize tableArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -21,7 +22,10 @@
     }
     return self;
 }
-
+//- (id)initWithDataController:(MovieController *)movieController
+//{
+//    return self;
+//}
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -36,12 +40,15 @@
 {
     [super viewDidLoad];
     
-    UILabel *pullToReloadLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, -30, 300, 20)];
-    pullToReloadLabel.text = @"Pull to Refresh";
-    [self.tableView addSubview:pullToReloadLabel];
-    NSLog(@"Table view has launched."); 
-    
-
+//    UILabel *pullToReloadLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, -30, 300, 20)];
+//    pullToReloadLabel.text = @"Pull to Refresh";
+//    [self.tableView addSubview:pullToReloadLabel];
+    NSLog(@"Table view has launched.");
+    tableArray = [[NSArray alloc] init];
+    numberOfItems = [tableArray count];
+//    UILabel *unableToLoadLabel = [[UILabel alloc] initWithFrame:CGRectMake(60, 10, 300, 20)];
+//    unableToLoadLabel.text = @"Unable to retrieve data...";
+//    [self.tableView addSubview:unableToLoadLabel];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -73,6 +80,12 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+}
+-(void) movieListUpdated: (NSArray *)movieArray
+{
+    tableArray = movieArray;
+    numberOfItems = [tableArray count];
+    [self.tableView reloadData];
 }
 //  --- Fun feature for later --- //
 //- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
@@ -120,11 +133,32 @@
 {
     //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 10;
+    return numberOfItems;
+}
+- (NSInteger)realRowNumberForIndexPath:(NSIndexPath *)indexPath inTableView:(UITableView *)tableView 
+{
+	NSInteger retInt = 0;
+	if (!indexPath.section)
+	{
+		return indexPath.row;
+	}
+    
+	for (int i=0; i<indexPath.section;i++)
+	{
+		retInt += [tableView numberOfRowsInSection:i];
+	}
+	
+	return retInt + indexPath.row;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+	NSInteger realRow = [self realRowNumberForIndexPath:indexPath inTableView:tableView];
+	cell.backgroundColor = (realRow%2)?[UIColor whiteColor]:[UIColor colorWithRed:0.949 green:0.949 blue:0.949 alpha:1];
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{   
+    NSLog(@"Populating list");
     static NSString *CellIdentifier = @"Cell";
     
     CustomMovieCell *cell = (CustomMovieCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -132,8 +166,9 @@
         cell = [[CustomMovieCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"This row is %d", indexPath.row+1];
+    NSDictionary *currentObject = [tableArray objectAtIndex: indexPath.row];
+    NSLog(@"%@",[currentObject objectForKey:@"filmTitle"]);
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]];
     
     return cell;
 }
@@ -184,8 +219,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    
-    DetailViewController *detailViewController = [[DetailViewController alloc] initWithTitle:[[NSString alloc] initWithFormat:@"Detail for %d", indexPath.row+1]];
+    NSDictionary *currentObject = [tableArray objectAtIndex: indexPath.row];
+    DetailViewController *detailViewController = [[DetailViewController alloc] initWithTitle:[[NSString alloc] initWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]]];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];

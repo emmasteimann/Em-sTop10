@@ -9,13 +9,26 @@
 #import <Foundation/Foundation.h>
 #import "Movie.h"
 
+@protocol MovieControllerDelegate
+
+@optional
+
+-(void) movieListUpdated: (NSArray *)movieArray;
+
+@end
+
 @interface MovieController : NSObject
 {
     NSManagedObjectContext *managedObjectContext;
     NSMutableArray *movieArray;
+    NSString *movieListString;
+    id<MovieControllerDelegate> delegate;
 }
+
+-(void) loadToCoreData:(NSDictionary *)dataToLoad;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSMutableArray *movieArray; 
+@property (nonatomic, retain) id<MovieControllerDelegate> delegate;
 
 @end

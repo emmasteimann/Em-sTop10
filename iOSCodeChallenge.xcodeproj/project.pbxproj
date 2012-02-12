@@ -11,6 +11,13 @@
 		F53F713014E2C5FC0042972D /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F712F14E2C5FC0042972D /* TableViewController.m */; };
 		F53F713414E2D2DE0042972D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F713314E2D2DE0042972D /* DetailViewController.m */; };
 		F5A49E4714E74C9B00B02E89 /* MovieController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A49E4614E74C9B00B02E89 /* MovieController.m */; };
+		F5A49E5214E78ABF00B02E89 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A49E5114E78ABF00B02E89 /* Twitter.framework */; };
+		F5A49E5914E78C9100B02E89 /* g.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E5414E78C9100B02E89 /* g.png */; };
+		F5A49E5A14E78C9100B02E89 /* nc_17.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E5514E78C9100B02E89 /* nc_17.png */; };
+		F5A49E5B14E78C9100B02E89 /* pg_13.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E5614E78C9100B02E89 /* pg_13.png */; };
+		F5A49E5C14E78C9100B02E89 /* pg.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E5714E78C9100B02E89 /* pg.png */; };
+		F5A49E5D14E78C9100B02E89 /* r.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E5814E78C9100B02E89 /* r.png */; };
+		F5A49E6414E7A1B800B02E89 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A49E6314E7A1B800B02E89 /* Movie.m */; };
 		F5B3F74114E22F7300F2B644 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74014E22F7300F2B644 /* UIKit.framework */; };
 		F5B3F74314E22F7300F2B644 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74214E22F7300F2B644 /* Foundation.framework */; };
 		F5B3F74514E22F7300F2B644 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74414E22F7300F2B644 /* CoreGraphics.framework */; };
@@ -18,7 +25,6 @@
 		F5B3F74D14E22F7300F2B644 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5B3F74B14E22F7300F2B644 /* InfoPlist.strings */; };
 		F5B3F74F14E22F7300F2B644 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F74E14E22F7300F2B644 /* main.m */; };
 		F5B3F75314E22F7300F2B644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75214E22F7300F2B644 /* AppDelegate.m */; };
-		F5ED76DF14E4F7B4008ECB3B /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5ED76DD14E4F7B4008ECB3B /* Movie.m */; };
 		F5ED76E014E4FF5A008ECB3B /* iOSCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75414E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +37,14 @@
 		F53F713314E2D2DE0042972D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		F5A49E4514E74C9B00B02E89 /* MovieController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieController.h; sourceTree = "<group>"; };
 		F5A49E4614E74C9B00B02E89 /* MovieController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieController.m; sourceTree = "<group>"; };
+		F5A49E5114E78ABF00B02E89 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		F5A49E5414E78C9100B02E89 /* g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = g.png; path = Resources/g.png; sourceTree = "<group>"; };
+		F5A49E5514E78C9100B02E89 /* nc_17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nc_17.png; path = Resources/nc_17.png; sourceTree = "<group>"; };
+		F5A49E5614E78C9100B02E89 /* pg_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pg_13.png; path = Resources/pg_13.png; sourceTree = "<group>"; };
+		F5A49E5714E78C9100B02E89 /* pg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pg.png; path = Resources/pg.png; sourceTree = "<group>"; };
+		F5A49E5814E78C9100B02E89 /* r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = r.png; path = Resources/r.png; sourceTree = "<group>"; };
+		F5A49E6214E7A1B800B02E89 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		F5A49E6314E7A1B800B02E89 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		F5B3F73C14E22F7300F2B644 /* iOSCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B3F74014E22F7300F2B644 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F5B3F74214E22F7300F2B644 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -43,8 +57,6 @@
 		F5B3F75114E22F7300F2B644 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5B3F75214E22F7300F2B644 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F5B3F75514E22F7300F2B644 /* iOSCodeChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOSCodeChallenge.xcdatamodel; sourceTree = "<group>"; };
-		F5ED76DD14E4F7B4008ECB3B /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
-		F5ED76DE14E4F7B4008ECB3B /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5A49E5214E78ABF00B02E89 /* Twitter.framework in Frameworks */,
 				F5B3F74114E22F7300F2B644 /* UIKit.framework in Frameworks */,
 				F5B3F74314E22F7300F2B644 /* Foundation.framework in Frameworks */,
 				F5B3F74514E22F7300F2B644 /* CoreGraphics.framework in Frameworks */,
@@ -62,10 +75,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F5A49E5314E78C0700B02E89 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F5A49E5414E78C9100B02E89 /* g.png */,
+				F5A49E5514E78C9100B02E89 /* nc_17.png */,
+				F5A49E5614E78C9100B02E89 /* pg_13.png */,
+				F5A49E5714E78C9100B02E89 /* pg.png */,
+				F5A49E5814E78C9100B02E89 /* r.png */,
+			);
+			name = Resources;
+			path = iOSCodeChallenge;
+			sourceTree = "<group>";
+		};
+		F5A49E5E14E78CBC00B02E89 /* Core Data Managed Objects */ = {
+			isa = PBXGroup;
+			children = (
+				F5A49E6214E7A1B800B02E89 /* Movie.h */,
+				F5A49E6314E7A1B800B02E89 /* Movie.m */,
+			);
+			name = "Core Data Managed Objects";
+			sourceTree = "<group>";
+		};
 		F5B3F73114E22F7200F2B644 = {
 			isa = PBXGroup;
 			children = (
-				F5B3F74814E22F7300F2B644 /* iOSCodeChallenge */,
+				F5B3F74814E22F7300F2B644 /* Classes */,
+				F5B3F74914E22F7300F2B644 /* Supporting Files */,
+				F5A49E5314E78C0700B02E89 /* Resources */,
 				F5B3F73F14E22F7300F2B644 /* Frameworks */,
 				F5B3F73D14E22F7300F2B644 /* Products */,
 			);
@@ -82,6 +119,7 @@
 		F5B3F73F14E22F7300F2B644 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5A49E5114E78ABF00B02E89 /* Twitter.framework */,
 				F5B3F74014E22F7300F2B644 /* UIKit.framework */,
 				F5B3F74214E22F7300F2B644 /* Foundation.framework */,
 				F5B3F74414E22F7300F2B644 /* CoreGraphics.framework */,
@@ -90,9 +128,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F5B3F74814E22F7300F2B644 /* iOSCodeChallenge */ = {
+		F5B3F74814E22F7300F2B644 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F5A49E5E14E78CBC00B02E89 /* Core Data Managed Objects */,
 				F5B3F75114E22F7300F2B644 /* AppDelegate.h */,
 				F5B3F75214E22F7300F2B644 /* AppDelegate.m */,
 				F53F713214E2D2DE0042972D /* DetailViewController.h */,
@@ -101,13 +140,11 @@
 				F5291EE114E35C8800D1E1AC /* CustomMovieCell.m */,
 				F5A49E4514E74C9B00B02E89 /* MovieController.h */,
 				F5A49E4614E74C9B00B02E89 /* MovieController.m */,
-				F5ED76DD14E4F7B4008ECB3B /* Movie.m */,
-				F5ED76DE14E4F7B4008ECB3B /* Movie.h */,
 				F53F712E14E2C5FC0042972D /* TableViewController.h */,
 				F53F712F14E2C5FC0042972D /* TableViewController.m */,
 				F5B3F75414E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld */,
-				F5B3F74914E22F7300F2B644 /* Supporting Files */,
 			);
+			name = Classes;
 			path = iOSCodeChallenge;
 			sourceTree = "<group>";
 		};
@@ -120,6 +157,7 @@
 				F5B3F75014E22F7300F2B644 /* iOSCodeChallenge-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = iOSCodeChallenge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +211,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5B3F74D14E22F7300F2B644 /* InfoPlist.strings in Resources */,
+				F5A49E5914E78C9100B02E89 /* g.png in Resources */,
+				F5A49E5A14E78C9100B02E89 /* nc_17.png in Resources */,
+				F5A49E5B14E78C9100B02E89 /* pg_13.png in Resources */,
+				F5A49E5C14E78C9100B02E89 /* pg.png in Resources */,
+				F5A49E5D14E78C9100B02E89 /* r.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,9 +231,9 @@
 				F53F713014E2C5FC0042972D /* TableViewController.m in Sources */,
 				F53F713414E2D2DE0042972D /* DetailViewController.m in Sources */,
 				F5291EE214E35C8800D1E1AC /* CustomMovieCell.m in Sources */,
-				F5ED76DF14E4F7B4008ECB3B /* Movie.m in Sources */,
 				F5ED76E014E4FF5A008ECB3B /* iOSCodeChallenge.xcdatamodeld in Sources */,
 				F5A49E4714E74C9B00B02E89 /* MovieController.m in Sources */,
+				F5A49E6414E7A1B800B02E89 /* Movie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
