@@ -175,12 +175,36 @@
     NSString *getImagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.png",[currentObject objectForKey:@"filmId"]]];
     UIImage *image = [UIImage imageWithContentsOfFile:getImagePath];
     cell.imageView.image = image;
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]];
     
+    
+    UIFont *myFont = [UIFont boldSystemFontOfSize:24.0];
+    cell.textLabel.font  = myFont;
+    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]];
+    CGSize size = [[NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]] sizeWithFont:myFont];
+    NSLog(@"%f",size.width);
+    ;    //[cell.textLabel addSubview:<#(UIView *)#>
+    [cell.textLabel addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pg.png"]]];
+    //cell.textLabel.frame.origin.y = 50;
+    UIProgressView *ratingBar = [[UIProgressView alloc] initWithFrame:CGRectMake(75, size.height+55, 150, 30)];
+    float progess = [[currentObject objectForKey:@"criticsScore"] floatValue];
+    NSLog(@"%f",cell.textLabel.frame.origin.y);
+    [ratingBar setProgress:(progess/ 100)];
+    [cell.contentView addSubview:ratingBar];
     return cell;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100.0;
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 100.0;
+//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *cellText = @"Go get some text for your cell.";
+    UIFont *cellFont = [UIFont fontWithName:@"Helvetica" size:24.0];
+    CGSize constraintSize = CGSizeMake(280.0f, MAXFLOAT);
+    CGSize labelSize = [cellText sizeWithFont:cellFont constrainedToSize:constraintSize lineBreakMode:UILineBreakModeWordWrap];
+    
+    return labelSize.height + 50;
 }
 /*
 // Override to support conditional editing of the table view.
@@ -231,7 +255,8 @@
     DetailViewController *detailViewController = [[DetailViewController alloc] initWithNSDictionary:[tableArray objectAtIndex: indexPath.row]];
      // ...
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
+
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 @end

@@ -16,6 +16,8 @@
     if (self){
       
         self.title = [detailDictionary objectForKey:@"filmTitle"];
+        UIBarButtonItem *navigationBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(targetForNavigationButton:)];
+        self.navigationItem.rightBarButtonItem = navigationBackButton;
         
         
         

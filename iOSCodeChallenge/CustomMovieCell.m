@@ -16,9 +16,11 @@
     if (self) {
         // Initialization code
        //UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 10, 300, 30)];
+        
        // slider.minimumValue = 0;
        // slider.maximumValue = 100;
-       // [self.contentView addSubview:slider];
+        
+        //[self.contentView bringSubviewToFront:ratingBar];
     }
     return self;
 }
