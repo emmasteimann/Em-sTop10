@@ -37,6 +37,8 @@
 		F5E8D72314EA142600B7C46B /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D71B14EA142600B7C46B /* SBJsonBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5E8D72414EA142600B7C46B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D71D14EA142600B7C46B /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5E8D72514EA142600B7C46B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D71F14EA142600B7C46B /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F5E8D72C14EA3AE800B7C46B /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = F5E8D72A14EA3AE800B7C46B /* favorite.png */; };
+		F5E8D72D14EA3AE800B7C46B /* top10.png in Resources */ = {isa = PBXBuildFile; fileRef = F5E8D72B14EA3AE800B7C46B /* top10.png */; };
 		F5ED76E014E4FF5A008ECB3B /* iOSCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75414E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		F5E8D71D14EA142600B7C46B /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = Facebook/JSON/SBJsonParser.m; sourceTree = "<group>"; };
 		F5E8D71E14EA142600B7C46B /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = Facebook/JSON/SBJsonWriter.h; sourceTree = "<group>"; };
 		F5E8D71F14EA142600B7C46B /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = Facebook/JSON/SBJsonWriter.m; sourceTree = "<group>"; };
+		F5E8D72A14EA3AE800B7C46B /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favorite.png; path = Resources/favorite.png; sourceTree = "<group>"; };
+		F5E8D72B14EA3AE800B7C46B /* top10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = top10.png; path = Resources/top10.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 				F5A49E5414E78C9100B02E89 /* g.png */,
 				F5A49E5514E78C9100B02E89 /* nc_17.png */,
 				F5A49E5614E78C9100B02E89 /* pg_13.png */,
+				F5E8D72A14EA3AE800B7C46B /* favorite.png */,
+				F5E8D72B14EA3AE800B7C46B /* top10.png */,
 				F5A49E6514E7ABDA00B02E89 /* 29.png */,
 				F5A49E5714E78C9100B02E89 /* pg.png */,
 				F5A49E5814E78C9100B02E89 /* r.png */,
@@ -294,6 +300,8 @@
 				F5A49E5D14E78C9100B02E89 /* r.png in Resources */,
 				F5A49E6614E7ABDA00B02E89 /* 29.png in Resources */,
 				F5E8D70D14E9D26E00B7C46B /* FBDialog.bundle in Resources */,
+				F5E8D72C14EA3AE800B7C46B /* favorite.png in Resources */,
+				F5E8D72D14EA3AE800B7C46B /* top10.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

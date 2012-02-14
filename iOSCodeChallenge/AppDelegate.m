@@ -28,12 +28,22 @@ static NSString* kAppId = @"267983189936768";
     
     // Kick off the app
     TableViewController *table = [[TableViewController alloc] init];
+    TableViewController *favoriteTable = [[TableViewController alloc] init];
     MovieController *movie = [[MovieController alloc] init];
     [movie setDelegate:table];
     table.title = @"Top 10 Films";
     UINavigationController *localNavigationController = [[UINavigationController alloc] initWithRootViewController:table];
     
-    self.window.rootViewController = localNavigationController;
+    UITabBarController *tabController = [[UITabBarController alloc] init];
+    
+    tabController.viewControllers = [NSArray arrayWithObjects:localNavigationController, 
+                                     favoriteTable, nil];
+    
+    
+    localNavigationController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Top 10" image:[UIImage imageNamed:@"top10.png"] tag:0];
+    favoriteTable.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Favorite" image:[UIImage imageNamed:@"favorite.png"] tag:1];
+
+    self.window.rootViewController = tabController;
     self.window.backgroundColor = [UIColor redColor];
     
     NSManagedObjectContext *context = [self managedObjectContext];
@@ -58,7 +68,7 @@ static NSString* kAppId = @"267983189936768";
 //        [facebook authorize:permissions];
     }
     
-    [self.window addSubview:localNavigationController.view];
+    [self.window addSubview:tabController.view];
     [self.window makeKeyAndVisible];
     
     return YES;
