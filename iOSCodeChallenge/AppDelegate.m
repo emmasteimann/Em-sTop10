@@ -51,7 +51,7 @@ static NSString* kAppId = @"267983189936768";
     
     
     // Initialize Facebook
-    facebook = [[Facebook alloc] initWithAppId:kAppId andDelegate:localNavigationController];
+    facebook = [[Facebook alloc] initWithAppId:kAppId andDelegate:self];
     
     // Check and retrieve authorization information
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

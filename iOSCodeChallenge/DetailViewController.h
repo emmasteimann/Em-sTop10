@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FBConnect.h"
 
-@interface DetailViewController : UIViewController
+@interface DetailViewController : UIViewController <FBRequestDelegate>
 {
     NSDictionary *detailViewDictionary;
     UIScrollView *detailScrollView;
+    UIButton *loginButton;
 }
 
 - (id)initWithNSDictionary:(NSDictionary *)detailDictionary;

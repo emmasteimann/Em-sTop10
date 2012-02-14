@@ -25,7 +25,7 @@
     id<MovieControllerDelegate> delegate;
 }
 
--(void) writeImageToDirectory:(NSString *)imageURL withNameOf:(NSString *)nameString;
+-(void) writeSmallImageToDirectory:(NSString *)imageURL andBigImageToDirectory:(NSString *)bigImageURL imageURLwithNameOf:(NSString *)nameString;
 -(void) loadToCoreData:(NSDictionary *)dataToLoad;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;

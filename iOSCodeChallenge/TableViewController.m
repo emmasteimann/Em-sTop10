@@ -166,7 +166,7 @@
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
     NSDictionary *currentObject = [tableArray objectAtIndex: indexPath.row];
     NSLog(@"%@",[currentObject objectForKey:@"filmTitle"]);
-    NSString *getImagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.png",[currentObject objectForKey:@"filmId"]]];
+    NSString *getImagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-small.png",[currentObject objectForKey:@"filmId"]]];
     UIImage *image = [UIImage imageWithContentsOfFile:getImagePath];
 
     [cell setMovieCellName:[NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]] andMovieImage:image andCriticRatingValue:[currentObject objectForKey:@"criticsScore"] andMPAA:[currentObject objectForKey:@"mpaaRating"]];

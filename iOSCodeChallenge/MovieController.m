@@ -68,7 +68,7 @@
         NSDictionary* abridgedCast = [film objectForKey:@"abridged_cast"];
         NSString* thumbnailPoster = [posters objectForKey:@"thumbnail"];
         NSString* detailedPoster = [posters objectForKey:@"detailed"];
-        [self writeImageToDirectory:thumbnailPoster withNameOf:filmId];
+        [self writeSmallImageToDirectory:thumbnailPoster andBigImageToDirectory:detailedPoster imageURLwithNameOf:filmId];
         //NSLog(@"%@",film);
         //NSLog(@"------------------------------");
         
@@ -90,12 +90,20 @@
     NSLog(@"%d",[movieArray count]);
     [delegate movieListUpdated:movieArray];
 }
--(void) writeImageToDirectory:(NSString *)imageURL withNameOf:(NSString *)nameString
+-(void) writeSmallImageToDirectory:(NSString *)imageURL andBigImageToDirectory:(NSString *)bigImageURL imageURLwithNameOf:(NSString *)nameString
 {
+    //Small Image
     NSURL *url = [NSURL URLWithString:imageURL];
     NSData *imageData = [NSData dataWithContentsOfURL:url];
-    NSString *imagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.png",nameString]];
+    NSString *imagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-small.png",nameString]];
     [imageData writeToFile:imagePath atomically:YES];
+    
+    //Big Image
+    NSURL *bigUrl = [NSURL URLWithString:bigImageURL];
+    NSData *bigImageData = [NSData dataWithContentsOfURL:bigUrl];
+    NSString *bigImagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-big.png",nameString]];
+    [bigImageData writeToFile:bigImagePath atomically:YES];
+    
 }
 -(void) loadToCoreData:(NSDictionary *)dataToLoad
 {

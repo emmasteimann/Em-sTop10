@@ -39,6 +39,7 @@
 		F5E8D72514EA142600B7C46B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D71F14EA142600B7C46B /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5E8D72C14EA3AE800B7C46B /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = F5E8D72A14EA3AE800B7C46B /* favorite.png */; };
 		F5E8D72D14EA3AE800B7C46B /* top10.png in Resources */ = {isa = PBXBuildFile; fileRef = F5E8D72B14EA3AE800B7C46B /* top10.png */; };
+		F5E8D73F14EB1F7600B7C46B /* FBConnect.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5E8D73E14EB1F7600B7C46B /* FBConnect.bundle */; };
 		F5ED76E014E4FF5A008ECB3B /* iOSCodeChallenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75414E22F7300F2B644 /* iOSCodeChallenge.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		F5E8D71F14EA142600B7C46B /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = Facebook/JSON/SBJsonWriter.m; sourceTree = "<group>"; };
 		F5E8D72A14EA3AE800B7C46B /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favorite.png; path = Resources/favorite.png; sourceTree = "<group>"; };
 		F5E8D72B14EA3AE800B7C46B /* top10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = top10.png; path = Resources/top10.png; sourceTree = "<group>"; };
+		F5E8D73E14EB1F7600B7C46B /* FBConnect.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FBConnect.bundle; path = Facebook/FBConnect.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				F5E8D70214E9D26E00B7C46B /* Facebook.m */,
 				F5E8D70314E9D26E00B7C46B /* FBConnect.h */,
 				F5E8D70414E9D26E00B7C46B /* FBDialog.bundle */,
+				F5E8D73E14EB1F7600B7C46B /* FBConnect.bundle */,
 				F5E8D70514E9D26E00B7C46B /* FBDialog.h */,
 				F5E8D70614E9D26E00B7C46B /* FBDialog.m */,
 				F5E8D70714E9D26E00B7C46B /* FBLoginDialog.h */,
@@ -302,6 +305,7 @@
 				F5E8D70D14E9D26E00B7C46B /* FBDialog.bundle in Resources */,
 				F5E8D72C14EA3AE800B7C46B /* favorite.png in Resources */,
 				F5E8D72D14EA3AE800B7C46B /* top10.png in Resources */,
+				F5E8D73F14EB1F7600B7C46B /* FBConnect.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
