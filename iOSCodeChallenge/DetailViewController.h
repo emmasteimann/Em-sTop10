@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailViewController : UIViewController
+{
+    NSDictionary *detailViewDictionary;
+    UIScrollView *detailScrollView;
+}
 
 - (id)initWithNSDictionary:(NSDictionary *)detailDictionary;
+
+@property (nonatomic, retain) NSDictionary *detailViewDictionary;
+@property (nonatomic, retain) UIScrollView *detailScrollView;
 
 @end

@@ -63,16 +63,14 @@
         NSString* runtime = [film objectForKey:@"runtime"];
         NSString* synopsis = [film objectForKey:@"synopsis"];
         NSDictionary* posters = [film objectForKey:@"posters"];
+        NSDictionary* links = [film objectForKey:@"links"];
+        NSDictionary* siteLink = [links objectForKey:@"alternate"];
         NSDictionary* abridgedCast = [film objectForKey:@"abridged_cast"];
         NSString* thumbnailPoster = [posters objectForKey:@"thumbnail"];
         NSString* detailedPoster = [posters objectForKey:@"detailed"];
         [self writeImageToDirectory:thumbnailPoster withNameOf:filmId];
-//        NSLog(@"Title: %@",filmTitle);
-//        NSLog(@"MPAA Rating: %@",mpaaRating);
-//        NSLog(@"Critic's Score: %@",criticsScore);
-//        NSLog(@"Critic's Rating: %@",criticsRating);
-//        //NSLog(@"%@",film);
-//        NSLog(@"------------------------------");
+        //NSLog(@"%@",film);
+        //NSLog(@"------------------------------");
         
         NSDictionary* currentMovie = [NSDictionary dictionaryWithObjectsAndKeys: 
                                         filmId, @"filmId",
@@ -82,6 +80,7 @@
                                         criticsRating, @"criticsRating",
                                         runtime, @"runtime",
                                         synopsis, @"synopsis",
+                                        siteLink, @"siteLink",
                                         thumbnailPoster, @"thumbnailPoster",
                                         detailedPoster, @"detailedPoster",
                                         abridgedCast, @"abridgedCast",

@@ -85,10 +85,6 @@
     numberOfItems = [tableArray count];
     [self.tableView reloadData];
 }
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tv accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-    return UITableViewCellAccessoryDisclosureIndicator;
-}
 //  --- Fun feature for later --- //
 //- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 //{
@@ -167,12 +163,12 @@
     if (cell == nil) {
         cell = [[CustomMovieCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+    cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
     NSDictionary *currentObject = [tableArray objectAtIndex: indexPath.row];
     NSLog(@"%@",[currentObject objectForKey:@"filmTitle"]);
     NSString *getImagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.png",[currentObject objectForKey:@"filmId"]]];
     UIImage *image = [UIImage imageWithContentsOfFile:getImagePath];
-    
+
     [cell setMovieCellName:[NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]] andMovieImage:image andCriticRatingValue:[currentObject objectForKey:@"criticsScore"] andMPAA:[currentObject objectForKey:@"mpaaRating"]];
     
     
