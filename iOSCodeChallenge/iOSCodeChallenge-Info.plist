@@ -34,5 +34,14 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb267983189936768</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

@@ -170,28 +170,12 @@
     
     NSDictionary *currentObject = [tableArray objectAtIndex: indexPath.row];
     NSLog(@"%@",[currentObject objectForKey:@"filmTitle"]);
-    //NSURL *url = [NSURL URLWithString:[currentObject objectForKey:@"thumbnailPoster"]];
-    //UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:url]];
     NSString *getImagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.png",[currentObject objectForKey:@"filmId"]]];
     UIImage *image = [UIImage imageWithContentsOfFile:getImagePath];
-    cell.imageView.image = image;
+    
+    [cell setMovieCellName:[NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]] andMovieImage:image andCriticRatingValue:[currentObject objectForKey:@"criticsScore"] andMPAA:[currentObject objectForKey:@"mpaaRating"]];
     
     
-    UIFont *myFont = [UIFont boldSystemFontOfSize:24.0];
-    cell.textLabel.font  = myFont;
-    cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]];
-    CGSize size = [[NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]] sizeWithFont:myFont];
-    NSLog(@"%f",size.width);
-    ;    //[cell.textLabel addSubview:<#(UIView *)#>
-    [cell.textLabel addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pg.png"]]];
-    //cell.textLabel.frame.origin.y = 50;
-    UIProgressView *ratingBar = [[UIProgressView alloc] initWithFrame:CGRectMake(75, size.height+55, 150, 30)];
-    float progess = [[currentObject objectForKey:@"criticsScore"] floatValue];
-    NSLog(@"%f",cell.textLabel.frame.origin.y);
-    [ratingBar setProgress:(progess/ 100)];
-    [cell.contentView addSubview:ratingBar];
     return cell;
 }
 //-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

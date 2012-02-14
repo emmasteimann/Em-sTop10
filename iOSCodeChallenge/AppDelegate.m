@@ -10,9 +10,12 @@
 #import "TableViewController.h"
 #import "MovieController.h"
 
+static NSString* kAppId = @"267983189936768";
+
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize facebook;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
@@ -23,23 +26,41 @@
     
     // Override point for customization after application launch.
     
+    // Kick off the app
     TableViewController *table = [[TableViewController alloc] init];
     MovieController *movie = [[MovieController alloc] init];
     [movie setDelegate:table];
     table.title = @"Top 10 Films";
     UINavigationController *localNavigationController = [[UINavigationController alloc] initWithRootViewController:table];
     
-//    UIImage *icon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"29.png"]];
-//    UINavigationBar *navBar = localNavigationController.navigationBar;
-//    [navBar addSubview:icon];
     self.window.rootViewController = localNavigationController;
     self.window.backgroundColor = [UIColor redColor];
     
     NSManagedObjectContext *context = [self managedObjectContext];
 	[movie setManagedObjectContext:context];
-     
+    
+    
+    // Initialize Facebook
+    facebook = [[Facebook alloc] initWithAppId:kAppId andDelegate:localNavigationController];
+    
+    // Check and retrieve authorization information
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"FBAccessTokenKey"] && [defaults objectForKey:@"FBExpirationDateKey"]) {
+        facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
+        facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
+    }
+    
+    if (![facebook isSessionValid]) {
+//        NSArray *permissions = [[NSArray alloc] initWithObjects:
+//                                @"publish_stream", 
+//                                @"read_stream",
+//                                nil];
+//        [facebook authorize:permissions];
+    }
+    
     [self.window addSubview:localNavigationController.view];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -190,6 +211,20 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - Facebook Methods
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [self.facebook handleOpenURL:url];
+}
+
+- (void)fbDidLogin {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
+    [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
+    [defaults synchronize];
+    
 }
 
 @end
