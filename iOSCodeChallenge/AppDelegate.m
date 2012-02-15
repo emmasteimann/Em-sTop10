@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TableViewController.h"
 #import "MovieController.h"
+#import "ImageCache.h"
 
 static NSString* kAppId = @"267983189936768";
 
@@ -27,9 +28,10 @@ static NSString* kAppId = @"267983189936768";
     // Override point for customization after application launch.
     
     // Kick off the app
+    ImageCache *imageCache = [[ImageCache alloc] init];
     TableViewController *table = [[TableViewController alloc] init];
     TableViewController *favoriteTable = [[TableViewController alloc] init];
-    MovieController *movie = [[MovieController alloc] init];
+    MovieController *movie = [[MovieController alloc] initWithImageCache:imageCache];
     [movie setDelegate:table];
     table.title = @"Top 10 Films";
     UINavigationController *localNavigationController = [[UINavigationController alloc] initWithRootViewController:table];

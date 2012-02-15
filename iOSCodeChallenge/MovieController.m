@@ -12,12 +12,13 @@
 
 @implementation MovieController
 
-@synthesize managedObjectContext, movieArray, delegate; 
+@synthesize managedObjectContext, movieArray, delegate, imageCache; 
 
-- (id) init
+- (id) initWithImageCache:(ImageCache *)appImageCache;
 {
     self = [super init];
     if (self){
+        imageCache = appImageCache;
         dispatch_async(kBgQueue, ^{
             NSLog(@"Asynchronous API request sent."); 
             NSData* data = [NSData dataWithContentsOfURL: kRottenTomatoesURL];
@@ -93,16 +94,10 @@
 -(void) writeSmallImageToDirectory:(NSString *)imageURL andBigImageToDirectory:(NSString *)bigImageURL imageURLwithNameOf:(NSString *)nameString
 {
     //Small Image
-    NSURL *url = [NSURL URLWithString:imageURL];
-    NSData *imageData = [NSData dataWithContentsOfURL:url];
-    NSString *imagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-small.png",nameString]];
-    [imageData writeToFile:imagePath atomically:YES];
+    [imageCache cacheImage:imageURL nameOfImage:nameString withExtension:@"small"];
     
     //Big Image
-    NSURL *bigUrl = [NSURL URLWithString:bigImageURL];
-    NSData *bigImageData = [NSData dataWithContentsOfURL:bigUrl];
-    NSString *bigImagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-big.png",nameString]];
-    [bigImageData writeToFile:bigImagePath atomically:YES];
+    [imageCache cacheImage:bigImageURL nameOfImage:nameString withExtension:@"big"];
     
 }
 -(void) loadToCoreData:(NSDictionary *)dataToLoad

@@ -8,6 +8,7 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import <Twitter/Twitter.h>
+#import "ImageCache.h"
 
 @implementation DetailViewController
 
@@ -32,7 +33,12 @@
         
         detailScrollView.contentSize=CGSizeMake(fullScreenRect.size.width,758);
         [detailScrollView setFrame:CGRectMake(0, 0, fullScreenRect.size.width, fullScreenRect.size.height)];
-        NSString *getImagePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-big.png",[detailViewDictionary objectForKey:@"filmId"]]];
+        
+        NSString *getImagePath;
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        getImagePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Temp"];
+        getImagePath = [getImagePath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-big.png",[detailViewDictionary objectForKey:@"filmId"]]];
+        
         
         UIImage *image = [UIImage imageWithContentsOfFile:getImagePath];
         

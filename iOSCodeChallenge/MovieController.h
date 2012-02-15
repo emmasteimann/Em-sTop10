@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Movie.h"
+#import "ImageCache.h"
 
 @protocol MovieControllerDelegate
 
@@ -23,13 +24,15 @@
     NSMutableArray *movieArray;
     NSString *movieListString;
     id<MovieControllerDelegate> delegate;
+    ImageCache *imageCache;
 }
-
+- (id) initWithImageCache:(ImageCache *)appImageCache;
 -(void) writeSmallImageToDirectory:(NSString *)imageURL andBigImageToDirectory:(NSString *)bigImageURL imageURLwithNameOf:(NSString *)nameString;
 -(void) loadToCoreData:(NSDictionary *)dataToLoad;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSMutableArray *movieArray; 
 @property (nonatomic, retain) id<MovieControllerDelegate> delegate;
+@property (nonatomic, retain) ImageCache *imageCache;
 
 @end
