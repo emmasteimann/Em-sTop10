@@ -45,28 +45,64 @@
         UIImageView *posterImage = [[UIImageView alloc] initWithImage:image];
         
         
-        [posterImage setFrame:CGRectMake((fullScreenRect.size.width/2 - (posterImage.image.size.width/2)), 50, posterImage.image.size.width, posterImage.image.size.height)];
+        [posterImage setFrame:CGRectMake((fullScreenRect.size.width/2 - (posterImage.image.size.width/2)), 10, posterImage.image.size.width, posterImage.image.size.height)];
          NSLog(@"%f",(posterImage.image.size.width/2)
                );
-        
+        UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		[postButton setTitle:@"Post to Facebook" forState:UIControlStateNormal];
+		postButton.frame = CGRectMake(90, posterImage.image.size.height + 20, 110, 29);
+        postButton.enabled = NO;
+        [postButton setAlpha:0.5];
+        postButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
+        [detailScrollView addSubview:postButton];
+        UIButton *faveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		[faveButton setTitle:@"Click to Favorite" forState:UIControlStateNormal];
+		faveButton.frame = CGRectMake(205, posterImage.image.size.height + 20, 110, 29);
+        faveButton.enabled = NO;
+        faveButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
+        [detailScrollView addSubview:faveButton];
         // Login Button
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        CGFloat xLoginButtonOffset = self.view.center.x - (318/2);
-        CGFloat yLoginButtonOffset = self.view.bounds.size.height - (58 + 13);
-        loginButton.frame = CGRectMake(xLoginButtonOffset,yLoginButtonOffset,318,58);
+        CGFloat xLoginButtonOffset = 10;
+        CGFloat yLoginButtonOffset = posterImage.image.size.height + 20;
+        loginButton.frame = CGRectMake(xLoginButtonOffset,yLoginButtonOffset,72,29);
         [loginButton addTarget:self
                         action:@selector(fbLogin:)
               forControlEvents:UIControlEventTouchUpInside];
         [loginButton setImage:
-         [UIImage imageNamed:@"FBConnect.bundle/images/LoginWithFacebookNormal@2x.png"]
+         [UIImage imageNamed:@"FBConnect.bundle/images/LoginNormal.png"]
                      forState:UIControlStateNormal];
         [loginButton setImage:
-         [UIImage imageNamed:@"FBConnect.bundle/images/LoginWithFacebookPressed@2x.png"]
+         [UIImage imageNamed:@"FBConnect.bundle/images/LoginPressed.png"]
                      forState:UIControlStateHighlighted];
         [loginButton sizeToFit];
         [detailScrollView addSubview:loginButton];
         
         [detailScrollView addSubview:posterImage];
+        UIFont *defaultFont = [UIFont boldSystemFontOfSize:14.0f];
+        UILabel *synopsis = [[UILabel alloc] initWithFrame:CGRectMake(10, posterImage.image.size.height + 50, 100,50)];
+        [synopsis setBackgroundColor:[UIColor clearColor]];
+        [synopsis setFont:defaultFont];
+        [synopsis setOpaque:NO];
+        [synopsis setText:@"Synopsis"];
+        
+        UILabel *synopsisText = [[UILabel alloc] initWithFrame:CGRectMake(10, posterImage.image.size.height + 80, 300,200)];
+        [synopsisText setBackgroundColor:[UIColor clearColor]];
+        [synopsisText setFont:defaultFont];
+        [synopsisText setOpaque:NO];
+        synopsisText.lineBreakMode = UILineBreakModeWordWrap;
+        synopsisText.numberOfLines = 0;
+        NSString * synopsisLabelText = [detailViewDictionary objectForKey:@"synopsis"];
+        [synopsisText setText:synopsisLabelText];
+        
+        [detailScrollView addSubview:synopsisText];
+        [detailScrollView addSubview:synopsis];
+        
+        CGSize size = [synopsisLabelText sizeWithFont:defaultFont
+                                    constrainedToSize:CGSizeMake(300.0f,CGFLOAT_MAX)
+                                        lineBreakMode:UILineBreakModeWordWrap];
+        NSLog(@"%@",synopsisLabelText);
+        NSLog(@"%f",size.height);
         [self.view addSubview:detailScrollView];
         
         
@@ -146,6 +182,16 @@
 - (void)viewDidLoad
 {
     //self.title = @"Detail";
+    //    UIFont *myFont = [UIFont boldSystemFontOfSize:15.0];
+    //    
+    //    // Get the width of a string when wrapping within a particular width
+    //    NSString *loremIpsum = @"Lorem Ipsum Delores S...";
+    //    CGSize size = [loremIpsum sizeWithFont:myFont
+    //                                  forWidth:150.0 
+    //                             lineBreakMode:UILineBreakModeWordWrap];
+    //    NSLog(@"%f",size.height);
+    //    NSLog(@"%f",size.width);
+
     [super viewDidLoad];
 }
 

@@ -34,19 +34,21 @@ static NSString* kAppId = @"267983189936768";
     MovieController *movie = [[MovieController alloc] initWithImageCache:imageCache];
     [movie setDelegate:table];
     table.title = @"Top 10 Films";
+    favoriteTable.title = @"Favorite Films";
     UINavigationController *localNavigationController = [[UINavigationController alloc] initWithRootViewController:table];
+    UINavigationController *favoriteNavigationController = [[UINavigationController alloc] initWithRootViewController:favoriteTable];
     
     UITabBarController *tabController = [[UITabBarController alloc] init];
     
     tabController.viewControllers = [NSArray arrayWithObjects:localNavigationController, 
-                                     favoriteTable, nil];
+                                     favoriteNavigationController, nil];
     
     
     localNavigationController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Top 10" image:[UIImage imageNamed:@"top10.png"] tag:0];
     favoriteTable.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"Favorite" image:[UIImage imageNamed:@"favorite.png"] tag:1];
 
     self.window.rootViewController = tabController;
-    self.window.backgroundColor = [UIColor redColor];
+    self.window.backgroundColor = [UIColor whiteColor];
     
     NSManagedObjectContext *context = [self managedObjectContext];
 	[movie setManagedObjectContext:context];

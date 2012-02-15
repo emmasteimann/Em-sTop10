@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "iOSCodeChallenge/DetailViewController.m"
-         timestampString = "350976540.458642"
+         timestampString = "350982926.541361"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "198"
-         endingLineNumber = "198"
+         startingLineNumber = "244"
+         endingLineNumber = "244"
          landmarkName = "-request:didFailWithError:"
          landmarkType = "5">
       </FileBreakpoint>

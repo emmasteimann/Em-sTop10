@@ -52,7 +52,7 @@
     CGRect imageFrame = CGRectMake(inset, inset, imageView.image.size.width, imageView.image.size.height);
     
     
-    CGSize textSize = [[movieName text] sizeWithFont:[movieName font]];
+    CGSize textSize = [[movieName text] sizeWithFont:[movieName font] forWidth:valueWidth lineBreakMode:UILineBreakModeTailTruncation];
     
     CGFloat strikeWidth = textSize.width;
     
