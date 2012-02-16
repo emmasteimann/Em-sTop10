@@ -27,13 +27,6 @@
         [[self contentView] addSubview:ratingImage];
         ratingBar = [[UIProgressView alloc] initWithFrame:CGRectZero];
         [[self contentView] addSubview:ratingBar];
-        // Initialization code
-       //UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(10, 10, 300, 30)];
-        
-       // slider.minimumValue = 0;
-       // slider.maximumValue = 100;
-        
-        //[self.contentView bringSubviewToFront:ratingBar];
     }
     return self;
 }
@@ -83,8 +76,6 @@
     UIFont *myFont = [UIFont boldSystemFontOfSize:24.0];
     movieName.font = myFont;
     movieName.minimumFontSize = 14.0;
-    //movieName.lineBreakMode = UILineBreakModeWordWrap;
-    //movieName.numberOfLines = 0;
     
     float addWidth;
     if (strikeWidth > valueWidth) {

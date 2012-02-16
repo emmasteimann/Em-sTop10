@@ -27,6 +27,8 @@
 		F5B3F75314E22F7300F2B644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75214E22F7300F2B644 /* AppDelegate.m */; };
 		F5C14D6A14EC317800B3C4C9 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C14D6914EC317800B3C4C9 /* Movie.m */; };
 		F5C14D7514ECE58300B3C4C9 /* Divider.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C14D7414ECE58200B3C4C9 /* Divider.m */; };
+		F5C14D8514ECF62800B3C4C9 /* tomato2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C14D8414ECF62700B3C4C9 /* tomato2x.png */; };
+		F5C14D8714ECF64000B3C4C9 /* tomato.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C14D8614ECF64000B3C4C9 /* tomato.png */; };
 		F5E8D70C14E9D26E00B7C46B /* Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D70214E9D26E00B7C46B /* Facebook.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5E8D70D14E9D26E00B7C46B /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5E8D70414E9D26E00B7C46B /* FBDialog.bundle */; };
 		F5E8D70E14E9D26E00B7C46B /* FBDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D70614E9D26E00B7C46B /* FBDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -61,7 +63,7 @@
 		F5A49E5714E78C9100B02E89 /* pg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pg.png; path = Resources/pg.png; sourceTree = "<group>"; };
 		F5A49E5814E78C9100B02E89 /* r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = r.png; path = Resources/r.png; sourceTree = "<group>"; };
 		F5A49E6514E7ABDA00B02E89 /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 29.png; path = Resources/29.png; sourceTree = "<group>"; };
-		F5B3F73C14E22F7300F2B644 /* iOSCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5B3F73C14E22F7300F2B644 /* Em'sTop10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Em'sTop10.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B3F74014E22F7300F2B644 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F5B3F74214E22F7300F2B644 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5B3F74414E22F7300F2B644 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -77,6 +79,8 @@
 		F5C14D6914EC317800B3C4C9 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		F5C14D7314ECE58100B3C4C9 /* Divider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Divider.h; sourceTree = "<group>"; };
 		F5C14D7414ECE58200B3C4C9 /* Divider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Divider.m; sourceTree = "<group>"; };
+		F5C14D8414ECF62700B3C4C9 /* tomato2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tomato2x.png; path = ../tomato2x.png; sourceTree = "<group>"; };
+		F5C14D8614ECF64000B3C4C9 /* tomato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tomato.png; path = ../tomato.png; sourceTree = "<group>"; };
 		F5E8D70114E9D26E00B7C46B /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Facebook.h; path = Facebook/Facebook.h; sourceTree = "<group>"; };
 		F5E8D70214E9D26E00B7C46B /* Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Facebook.m; path = Facebook/Facebook.m; sourceTree = "<group>"; };
 		F5E8D70314E9D26E00B7C46B /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBConnect.h; path = Facebook/FBConnect.h; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				F5A49E5414E78C9100B02E89 /* g.png */,
 				F5A49E5514E78C9100B02E89 /* nc_17.png */,
 				F5A49E5614E78C9100B02E89 /* pg_13.png */,
+				F5C14D8614ECF64000B3C4C9 /* tomato.png */,
+				F5C14D8414ECF62700B3C4C9 /* tomato2x.png */,
 				F5E8D72A14EA3AE800B7C46B /* favorite.png */,
 				F5E8D72B14EA3AE800B7C46B /* top10.png */,
 				F5A49E6514E7ABDA00B02E89 /* 29.png */,
@@ -162,7 +168,7 @@
 		F5B3F73D14E22F7300F2B644 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F5B3F73C14E22F7300F2B644 /* iOSCodeChallenge.app */,
+				F5B3F73C14E22F7300F2B644 /* Em'sTop10.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,7 +286,7 @@
 			);
 			name = iOSCodeChallenge;
 			productName = iOSCodeChallenge;
-			productReference = F5B3F73C14E22F7300F2B644 /* iOSCodeChallenge.app */;
+			productReference = F5B3F73C14E22F7300F2B644 /* Em'sTop10.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -324,6 +330,8 @@
 				F5E8D72C14EA3AE800B7C46B /* favorite.png in Resources */,
 				F5E8D72D14EA3AE800B7C46B /* top10.png in Resources */,
 				F5E8D73F14EB1F7600B7C46B /* FBConnect.bundle in Resources */,
+				F5C14D8514ECF62800B3C4C9 /* tomato2x.png in Resources */,
+				F5C14D8714ECF64000B3C4C9 /* tomato.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +431,7 @@
 				GCC_PREFIX_HEADER = "iOSCodeChallenge/iOSCodeChallenge-Prefix.pch";
 				INFOPLIST_FILE = "iOSCodeChallenge/iOSCodeChallenge-Info.plist";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Em'sTop10";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -435,7 +443,7 @@
 				GCC_PREFIX_HEADER = "iOSCodeChallenge/iOSCodeChallenge-Prefix.pch";
 				INFOPLIST_FILE = "iOSCodeChallenge/iOSCodeChallenge-Info.plist";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Em'sTop10";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

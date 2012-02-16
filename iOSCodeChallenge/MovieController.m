@@ -32,7 +32,6 @@
 #pragma mark - Delegate Method after response
 - (void)fetchedData:(NSData *)responseData {
     NSLog(@"Request complete. Handling data."); 
-    //NSString *jsonData = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
     
     movieArray = [[NSMutableArray alloc] initWithCapacity:10];
     NSError *parseError = nil;
@@ -72,8 +71,6 @@
         NSString* thumbnailPoster = [posters objectForKey:@"thumbnail"];
         NSString* detailedPoster = [posters objectForKey:@"detailed"];
         [self writeSmallImageToDirectory:thumbnailPoster andBigImageToDirectory:detailedPoster imageURLwithNameOf:filmId];
-        //NSLog(@"%@",film);
-        //NSLog(@"------------------------------");
         
         NSDictionary* currentMovie = [NSDictionary dictionaryWithObjectsAndKeys: 
                                         filmId, @"filmId",
@@ -226,20 +223,12 @@
 	movieArray = [[NSMutableArray alloc] initWithArray: results];
     
     NSLog(@"grabbing from core data");
-    for (id theCoreDataObject in results) {
-        NSLog(@"Query returned %@", 
-              theCoreDataObject); 
-    }
-    NSLog(@"%@",results);
-	NSLog(@"%@",movieArray);
     return movieArray;
 }
 #pragma mark - Set FavoriteMovie
 - (void)setMovieFavorite:(Movie *)movieToSet toValue:(BOOL)value {
     
-	NSLog(@"****************************************");
     NSLog(@"Set IS FAVE BY MOVIEEEEE");
-    NSLog(@"****************************************");
     
 	[movieToSet setIsFavorite:[NSNumber numberWithBool:value]];
 	
@@ -255,9 +244,7 @@
     
     // Handle Moving Files
     if(!value){        
-        NSLog(@"****************************************");
         NSLog(@"MOVING File...");
-        NSLog(@"****************************************");
         NSString *nameString = [[movieToSet id] stringValue];
         NSString *path;
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -289,9 +276,7 @@
             
         }
     } else {
-        NSLog(@"****************************************");
         NSLog(@"NOT Moving Small File...");
-        NSLog(@"****************************************");
     }
     
 }
@@ -381,9 +366,7 @@
     
     // Handle Moving Files
     if(value){        
-        NSLog(@"****************************************");
         NSLog(@"MOVING File...");
-        NSLog(@"****************************************");
         NSString *nameString = [[movieObject id] stringValue];
         NSString *path;
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -415,9 +398,7 @@
             
         }
     } else {
-        NSLog(@"****************************************");
         NSLog(@"NOT Moving Small File...");
-        NSLog(@"****************************************");
     }
 }
 @end

@@ -25,8 +25,6 @@ static NSString* kAppId = @"267983189936768";
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // Override point for customization after application launch.
-    
     // Kick off the app
     ImageCache *imageCache = [[ImageCache alloc] init];
     MovieController *movie = [[MovieController alloc] initWithImageCache:imageCache];
@@ -67,13 +65,6 @@ static NSString* kAppId = @"267983189936768";
         facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
     }
     
-    if (![facebook isSessionValid]) {
-//        NSArray *permissions = [[NSArray alloc] initWithObjects:
-//                                @"publish_stream", 
-//                                @"read_stream",
-//                                nil];
-//        [facebook authorize:permissions];
-    }
     
     [self.window addSubview:tabController.view];
     [self.window makeKeyAndVisible];

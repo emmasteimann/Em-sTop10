@@ -51,10 +51,6 @@
     }
     return self;
 }
-//- (id)initWithDataController:(MovieController *)movieController
-//{
-//    return self;
-//}
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -69,19 +65,13 @@
 {
     [super viewDidLoad];
     
-//    UILabel *pullToReloadLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, -30, 300, 20)];
-//    pullToReloadLabel.text = @"Pull to Refresh";
-//    [self.tableView addSubview:pullToReloadLabel];
     NSLog(@"Table view has launched.");
     tableArray = [[NSArray alloc] init];
     numberOfItems = [tableArray count];
     if(needFavorites){
         [self loadFavorites];
     }
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+
     if(needFavorites){
         self.navigationItem.rightBarButtonItem = self.editButtonItem;
     }
@@ -95,7 +85,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"APPPPEEEEEAAAARRRREEEDD");
     [super viewWillAppear:animated];
     if(needFavorites){
         tableArray = [myFavorites getMoviesFromCoreData];
@@ -134,33 +123,6 @@
     numberOfItems = [tableArray count];
     [self.tableView reloadData];
 }
-//  --- Fun feature for later --- //
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-//{
-//    // Detect if the trigger has been set, if so add new items and reload
-//    if (addItemsTrigger)
-//    {
-//        numberOfItems += 2;
-//        NSLog(@"Scroll view reload");
-//        self.title = @"Top 10";
-//        [self.tableView reloadData];
-//    }
-//    // Reset the trigger
-//    addItemsTrigger= NO;
-//}
-//- (void) scrollViewDidScroll:(UIScrollView *)scrollView
-//{
-//    // Trigger the offset if the user has pulled back more than 50 points
-//    if (scrollView.contentOffset.y < 0.0f)
-//    {
-//        self.title = @"Pull to Refresh";
-//        if (scrollView.contentOffset.y < -50.0f)
-//        {
-//            addItemsTrigger = YES;
-//            self.title = @"Let go! :)";
-//        }
-//    }
-//}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -168,13 +130,6 @@
 }
 
 #pragma mark - Table view data source
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//#warning Potentially incomplete method implementation.
-//    // Return the number of sections.
-//    return 0;
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -216,8 +171,6 @@
     
     if(needFavorites){
         Movie *currentObject = [tableArray objectAtIndex:[indexPath row]];
-        NSLog(@"%@",currentObject);
-        NSLog(@"-------oioioioioioiioio-------");
         NSString *getImagePath;
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         getImagePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Favorite"];
@@ -240,9 +193,6 @@
     
     return cell;
 }
-//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    return 100.0;
-//}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *cellText = @"Go get some text for your cell.";
@@ -279,7 +229,6 @@
         {   
             numberOfItems--;
             self.currentMovie = [tableArray objectAtIndex:[indexPath row]];
-            NSLog(@"mmmmmmmmmmm %i",numberOfItems);
             NSLog(@"%@",self.currentMovie);
             //[self.currentMovie setIsFavorite: 0];
             [myFavorites setMovieFavorite:self.currentMovie toValue:NO];
@@ -300,39 +249,17 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    //NSDictionary *currentObject = [tableArray objectAtIndex: indexPath.row];
-//    DetailViewController *detailViewController = [[DetailViewController alloc] initWithTitle:[[NSString alloc] initWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]]];
     DetailViewController *detailViewController;
     if(needFavorites){
         NSLog(@"%@",[tableArray objectAtIndex: indexPath.row]);
         detailViewController = [[DetailViewController alloc] initWithNSDictionary:[tableArray objectAtIndex: indexPath.row] loadFromCoreData:YES withMovieController:myFavorites];
     } else{
         detailViewController = [[DetailViewController alloc] initWithNSDictionary:[tableArray objectAtIndex: indexPath.row] loadFromCoreData:NO withMovieController:myFavorites];
-    }// ...
-     // Pass the selected object to the new view controller.
+    }
 
     [self.navigationController pushViewController:detailViewController animated:YES];
 }

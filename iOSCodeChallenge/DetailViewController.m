@@ -361,17 +361,6 @@ movieController;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    //self.title = @"Detail";
-    //    UIFont *myFont = [UIFont boldSystemFontOfSize:15.0];
-    //    
-    //    // Get the width of a string when wrapping within a particular width
-    //    NSString *loremIpsum = @"Lorem Ipsum Delores S...";
-    //    CGSize size = [loremIpsum sizeWithFont:myFont
-    //                                  forWidth:150.0 
-    //                             lineBreakMode:UILineBreakModeWordWrap];
-    //    NSLog(@"%f",size.height);
-    //    NSLog(@"%f",size.width);
-
     [super viewDidLoad];
 }
 
@@ -384,7 +373,6 @@ movieController;
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"DETAIL _ _ _ APPPPEEEEEAAAARRRREEEDD");
     BOOL isFavoriteItem = [movieController checkIfFavorite:detailID];
     if(isFavoriteItem){
         NSLog(@"is fave");
