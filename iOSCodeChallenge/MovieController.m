@@ -249,7 +249,6 @@
         NSString *path;
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         path = [[paths objectAtIndex:0] stringByAppendingPathComponent:faveDirectory];
-        NSString *tempPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:tempDirectory];
         
         NSString *uniqueSmallPath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.png",nameString,@"small"]];
         
@@ -260,9 +259,7 @@
         {
             NSLog(@"Moving Small File...");
             
-             NSString *uniqueFaveSmallPath = [tempPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.png",nameString,@"small"]];
-            
-            [[NSFileManager defaultManager] moveItemAtPath:uniqueSmallPath toPath:uniqueFaveSmallPath error:nil];
+            [[NSFileManager defaultManager] removeItemAtPath:uniqueSmallPath error:nil];
         }
         
         // Check for file existence of big file and move
@@ -270,9 +267,8 @@
         {
             NSLog(@"Moving Big File...");
             
-            NSString *uniqueFaveBigPath = [tempPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.png",nameString,@"big"]];
             
-            [[NSFileManager defaultManager] moveItemAtPath: uniqueBigPath toPath:uniqueFaveBigPath error:nil];
+            [[NSFileManager defaultManager] removeItemAtPath: uniqueBigPath error:nil];
             
         }
     } else {
@@ -384,7 +380,7 @@
             
             NSString *uniqueFaveSmallPath = [tempPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.png",nameString,@"small"]];
             
-            [[NSFileManager defaultManager] moveItemAtPath:uniqueSmallPath toPath:uniqueFaveSmallPath error:nil];
+            [[NSFileManager defaultManager] copyItemAtPath:uniqueSmallPath toPath:uniqueFaveSmallPath error:nil];
         }
         
         // Check for file existence of big file and move
@@ -394,7 +390,7 @@
             
              NSString *uniqueFaveBigPath = [tempPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-%@.png",nameString,@"big"]];
             
-            [[NSFileManager defaultManager] moveItemAtPath: uniqueBigPath toPath:uniqueFaveBigPath error:nil];
+            [[NSFileManager defaultManager] copyItemAtPath: uniqueBigPath toPath:uniqueFaveBigPath error:nil];
             
         }
     } else {
