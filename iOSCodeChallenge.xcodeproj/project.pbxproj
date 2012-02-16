@@ -17,7 +17,6 @@
 		F5A49E5B14E78C9100B02E89 /* pg_13.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E5614E78C9100B02E89 /* pg_13.png */; };
 		F5A49E5C14E78C9100B02E89 /* pg.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E5714E78C9100B02E89 /* pg.png */; };
 		F5A49E5D14E78C9100B02E89 /* r.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E5814E78C9100B02E89 /* r.png */; };
-		F5A49E6414E7A1B800B02E89 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A49E6314E7A1B800B02E89 /* Movie.m */; };
 		F5A49E6614E7ABDA00B02E89 /* 29.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A49E6514E7ABDA00B02E89 /* 29.png */; };
 		F5B3F74114E22F7300F2B644 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74014E22F7300F2B644 /* UIKit.framework */; };
 		F5B3F74314E22F7300F2B644 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5B3F74214E22F7300F2B644 /* Foundation.framework */; };
@@ -26,6 +25,7 @@
 		F5B3F74D14E22F7300F2B644 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5B3F74B14E22F7300F2B644 /* InfoPlist.strings */; };
 		F5B3F74F14E22F7300F2B644 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F74E14E22F7300F2B644 /* main.m */; };
 		F5B3F75314E22F7300F2B644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75214E22F7300F2B644 /* AppDelegate.m */; };
+		F5C14D6A14EC317800B3C4C9 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C14D6914EC317800B3C4C9 /* Movie.m */; };
 		F5E8D70C14E9D26E00B7C46B /* Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D70214E9D26E00B7C46B /* Facebook.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5E8D70D14E9D26E00B7C46B /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5E8D70414E9D26E00B7C46B /* FBDialog.bundle */; };
 		F5E8D70E14E9D26E00B7C46B /* FBDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D70614E9D26E00B7C46B /* FBDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -59,8 +59,6 @@
 		F5A49E5614E78C9100B02E89 /* pg_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pg_13.png; path = Resources/pg_13.png; sourceTree = "<group>"; };
 		F5A49E5714E78C9100B02E89 /* pg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pg.png; path = Resources/pg.png; sourceTree = "<group>"; };
 		F5A49E5814E78C9100B02E89 /* r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = r.png; path = Resources/r.png; sourceTree = "<group>"; };
-		F5A49E6214E7A1B800B02E89 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
-		F5A49E6314E7A1B800B02E89 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		F5A49E6514E7ABDA00B02E89 /* 29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 29.png; path = Resources/29.png; sourceTree = "<group>"; };
 		F5B3F73C14E22F7300F2B644 /* iOSCodeChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCodeChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B3F74014E22F7300F2B644 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -74,6 +72,8 @@
 		F5B3F75114E22F7300F2B644 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F5B3F75214E22F7300F2B644 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F5B3F75514E22F7300F2B644 /* iOSCodeChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOSCodeChallenge.xcdatamodel; sourceTree = "<group>"; };
+		F5C14D6814EC317800B3C4C9 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		F5C14D6914EC317800B3C4C9 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		F5E8D70114E9D26E00B7C46B /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Facebook.h; path = Facebook/Facebook.h; sourceTree = "<group>"; };
 		F5E8D70214E9D26E00B7C46B /* Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Facebook.m; path = Facebook/Facebook.m; sourceTree = "<group>"; };
 		F5E8D70314E9D26E00B7C46B /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBConnect.h; path = Facebook/FBConnect.h; sourceTree = "<group>"; };
@@ -139,8 +139,8 @@
 		F5A49E5E14E78CBC00B02E89 /* Core Data Managed Objects */ = {
 			isa = PBXGroup;
 			children = (
-				F5A49E6214E7A1B800B02E89 /* Movie.h */,
-				F5A49E6314E7A1B800B02E89 /* Movie.m */,
+				F5C14D6814EC317800B3C4C9 /* Movie.h */,
+				F5C14D6914EC317800B3C4C9 /* Movie.m */,
 			);
 			name = "Core Data Managed Objects";
 			sourceTree = "<group>";
@@ -336,7 +336,6 @@
 				F5291EE214E35C8800D1E1AC /* CustomMovieCell.m in Sources */,
 				F5ED76E014E4FF5A008ECB3B /* iOSCodeChallenge.xcdatamodeld in Sources */,
 				F5A49E4714E74C9B00B02E89 /* MovieController.m in Sources */,
-				F5A49E6414E7A1B800B02E89 /* Movie.m in Sources */,
 				F5E8D70C14E9D26E00B7C46B /* Facebook.m in Sources */,
 				F5E8D70E14E9D26E00B7C46B /* FBDialog.m in Sources */,
 				F5E8D70F14E9D26E00B7C46B /* FBLoginDialog.m in Sources */,
@@ -348,6 +347,7 @@
 				F5E8D72414EA142600B7C46B /* SBJsonParser.m in Sources */,
 				F5E8D72514EA142600B7C46B /* SBJsonWriter.m in Sources */,
 				F5E8D74214EB5D2700B7C46B /* ImageCache.m in Sources */,
+				F5C14D6A14EC317800B3C4C9 /* Movie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

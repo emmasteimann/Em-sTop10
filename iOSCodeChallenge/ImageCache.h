@@ -15,6 +15,7 @@
 
 - (void) cacheImage: (NSString *) ImageURLString nameOfImage:(NSString *)nameString withExtension:(NSString *)extension;
 - (void)createDirectoryIfNotExists;
+- (void)createFavoriteDirectoryIfNotExists;
 - (int)howManyDaysHavePast:(NSDate*)lastDate today:(NSDate*)today;
 
 @end

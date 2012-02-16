@@ -2,7 +2,7 @@
 //  Movie.m
 //  iOSCodeChallenge
 //
-//  Created by Emma Steimann on 2/12/12.
+//  Created by Emma Steimann on 2/15/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,15 +11,17 @@
 
 @implementation Movie
 
-@dynamic title;
-@dynamic id;
-@dynamic mpaaRating;
-@dynamic criticsScore;
+@dynamic abridgedCast;
 @dynamic criticsRating;
+@dynamic criticsScore;
+@dynamic id;
+@dynamic isFavorite;
+@dynamic mpaaRating;
 @dynamic runtime;
 @dynamic synopsis;
 @dynamic thumbnailPoster;
-@dynamic abridgedCast;
-@dynamic isFavorite;
+@dynamic title;
+@dynamic siteLink;
+@dynamic detailedPoster;
 
 @end

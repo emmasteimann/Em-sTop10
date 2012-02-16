@@ -29,9 +29,11 @@ static NSString* kAppId = @"267983189936768";
     
     // Kick off the app
     ImageCache *imageCache = [[ImageCache alloc] init];
-    TableViewController *table = [[TableViewController alloc] init];
-    TableViewController *favoriteTable = [[TableViewController alloc] init];
     MovieController *movie = [[MovieController alloc] initWithImageCache:imageCache];
+    MovieController *movieControl = [[MovieController alloc] init];
+    TableViewController *table = [[TableViewController alloc] initWithMovieController:movieControl];
+    TableViewController *favoriteTable = [[TableViewController alloc] initWithFavorites:movieControl];
+    
     [movie setDelegate:table];
     table.title = @"Top 10 Films";
     favoriteTable.title = @"Favorite Films";
@@ -51,8 +53,9 @@ static NSString* kAppId = @"267983189936768";
     self.window.backgroundColor = [UIColor whiteColor];
     
     NSManagedObjectContext *context = [self managedObjectContext];
-	[movie setManagedObjectContext:context];
-    
+	[movie setManagedObjectContext:context]; 
+    [movieControl
+     setManagedObjectContext:context]; 
     
     // Initialize Facebook
     facebook = [[Facebook alloc] initWithAppId:kAppId andDelegate:self];

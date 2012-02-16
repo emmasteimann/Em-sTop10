@@ -9,6 +9,7 @@
 #import "ImageCache.h"
 
 #define tempDirectory @"Temp"
+#define faveDirectory @"Favorite"
 #define daysToLive 2
 
 @implementation ImageCache
@@ -17,8 +18,30 @@
     self = [super init];
     if (self){
         [self createDirectoryIfNotExists];
+        [self createFavoriteDirectoryIfNotExists];
     }
     return self;
+}
+- (void)createFavoriteDirectoryIfNotExists{
+    
+    NSString *path;
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	path = [[paths objectAtIndex:0] stringByAppendingPathComponent:faveDirectory];
+	NSError *error;
+	if (![[NSFileManager defaultManager] fileExistsAtPath:path])	//Does directory already exist?
+	{
+        NSLog(@"Creating temp directory...");
+		if (![[NSFileManager defaultManager] createDirectoryAtPath:path
+									   withIntermediateDirectories:NO
+														attributes:nil
+															 error:&error])
+		{
+			NSLog(@"Create directory error: %@", error);
+		}
+	} else {
+        NSLog(@"Directory Exists...");
+        return;
+    }
 }
 - (void)createDirectoryIfNotExists{
    

@@ -29,6 +29,10 @@
 - (id) initWithImageCache:(ImageCache *)appImageCache;
 -(void) writeSmallImageToDirectory:(NSString *)imageURL andBigImageToDirectory:(NSString *)bigImageURL imageURLwithNameOf:(NSString *)nameString;
 -(void) loadToCoreData:(NSDictionary *)dataToLoad;
+- (NSMutableArray*)getMoviesFromCoreData;
+- (void)setMovieFavorite:(Movie *)movieToSet toValue:(BOOL)value;
+- (void)setIdFavorite:(NSString *)movieToSet toValue:(BOOL)value;
+-(BOOL)checkIfFavorite:(NSString *)movieId;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSMutableArray *movieArray; 

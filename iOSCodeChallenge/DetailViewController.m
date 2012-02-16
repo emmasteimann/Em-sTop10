@@ -9,45 +9,67 @@
 #import "DetailViewController.h"
 #import <Twitter/Twitter.h>
 #import "ImageCache.h"
+#import "Movie.h"
+#import "MovieController.h"
 
 @implementation DetailViewController
 
-@synthesize detailViewDictionary, detailScrollView;
+@synthesize detailViewDictionary, detailScrollView, detailMovie, detailID,
+movieController;
 
-- (id)initWithNSDictionary:(NSDictionary *)detailDictionary
+- (id)initWithNSDictionary:(id)detailDictionary loadFromCoreData:(BOOL)loadFaves withMovieController:(MovieController *)movieControl
 {
     self = [super init];
     if (self){
+        movieController = movieControl;
+        needFaves = loadFaves;
+        //Set vars...
+        NSString *detailTitle;
+        NSString *detailSynopsis;
         
-        detailViewDictionary = detailDictionary;
+        // Set Dictionary for use in Object
+        if (needFaves){
+            detailMovie = (Movie *)detailDictionary;
+            detailTitle = [detailMovie title];
+            detailID = [[detailMovie id] stringValue];
+            detailSynopsis = [detailMovie synopsis];
+        }else{
+            detailViewDictionary = (NSDictionary *)detailDictionary;
+            detailTitle = [detailViewDictionary objectForKey:@"filmTitle"];
+            detailID = [detailViewDictionary objectForKey:@"filmId"];
+            detailSynopsis = [detailViewDictionary objectForKey:@"synopsis"];
+        }
         
-        self.title = [detailViewDictionary objectForKey:@"filmTitle"];
+            
+        // Set title for View
+        self.title = detailTitle;
         
+        // Set up Tweet Button
         UIBarButtonItem *navigationBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Tweet" style:UIBarButtonItemStylePlain target:self action:@selector(tweetLink:)];
         
         self.navigationItem.rightBarButtonItem = navigationBackButton;
         
+        // Setup Scroll View
         CGRect fullScreenRect=[[UIScreen mainScreen] applicationFrame];
         
         detailScrollView=[[UIScrollView alloc] initWithFrame:fullScreenRect];
         
         detailScrollView.contentSize=CGSizeMake(fullScreenRect.size.width,758);
         [detailScrollView setFrame:CGRectMake(0, 0, fullScreenRect.size.width, fullScreenRect.size.height)];
+        float padding = 10.0;
         
+        // Get and Create Poster Iamge
         NSString *getImagePath;
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         getImagePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Temp"];
-        getImagePath = [getImagePath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-big.png",[detailViewDictionary objectForKey:@"filmId"]]];
-        
-        
+        getImagePath = [getImagePath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-big.png",detailID]];
         UIImage *image = [UIImage imageWithContentsOfFile:getImagePath];
-        
-        UIImageView *posterImage = [[UIImageView alloc] initWithImage:image];
-        
-        
-        [posterImage setFrame:CGRectMake((fullScreenRect.size.width/2 - (posterImage.image.size.width/2)), 10, posterImage.image.size.width, posterImage.image.size.height)];
+        UIImageView *posterImage = [[UIImageView alloc] initWithImage:image];        
+        [posterImage setFrame:CGRectMake((fullScreenRect.size.width/2 - (posterImage.image.size.width/2)), padding, posterImage.image.size.width, posterImage.image.size.height)];
          NSLog(@"%f",(posterImage.image.size.width/2)
                );
+        
+        // Create Post to FB Button
         UIButton *postButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		[postButton setTitle:@"Post to Facebook" forState:UIControlStateNormal];
 		postButton.frame = CGRectMake(90, posterImage.image.size.height + 20, 110, 29);
@@ -55,15 +77,20 @@
         [postButton setAlpha:0.5];
         postButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
         [detailScrollView addSubview:postButton];
-        UIButton *faveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        
+        // Create Fave Button
+        faveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 		[faveButton setTitle:@"Click to Favorite" forState:UIControlStateNormal];
 		faveButton.frame = CGRectMake(205, posterImage.image.size.height + 20, 110, 29);
-        faveButton.enabled = NO;
+        ///faveButton.enabled = NO;
         faveButton.titleLabel.font = [UIFont boldSystemFontOfSize:12.0];
+        [faveButton addTarget:self action:@selector(addToFavorites:) forControlEvents:UIControlEventTouchUpInside];
+        // Add Fave Button 
         [detailScrollView addSubview:faveButton];
-        // Login Button
+        
+        // Create FB Login Button
         loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        CGFloat xLoginButtonOffset = 10;
+        CGFloat xLoginButtonOffset = padding;
         CGFloat yLoginButtonOffset = posterImage.image.size.height + 20;
         loginButton.frame = CGRectMake(xLoginButtonOffset,yLoginButtonOffset,72,29);
         [loginButton addTarget:self
@@ -76,38 +103,58 @@
          [UIImage imageNamed:@"FBConnect.bundle/images/LoginPressed.png"]
                      forState:UIControlStateHighlighted];
         [loginButton sizeToFit];
-        [detailScrollView addSubview:loginButton];
         
+        // Add FB login button and Poster Iamge
+        [detailScrollView addSubview:loginButton];
         [detailScrollView addSubview:posterImage];
+        
+        // Set Synopsis Header Label
         UIFont *defaultFont = [UIFont boldSystemFontOfSize:14.0f];
-        UILabel *synopsis = [[UILabel alloc] initWithFrame:CGRectMake(10, posterImage.image.size.height + 50, 100,50)];
+        UILabel *synopsis = [[UILabel alloc] initWithFrame:CGRectMake(padding, posterImage.image.size.height + 50, 100,50)];
         [synopsis setBackgroundColor:[UIColor clearColor]];
         [synopsis setFont:defaultFont];
         [synopsis setOpaque:NO];
         [synopsis setText:@"Synopsis"];
+        CGSize synopsisSize = [synopsis.text sizeWithFont:defaultFont];
+        NSLog(@"Synopsis Label Size: %f",synopsisSize.height);
         
-        UILabel *synopsisText = [[UILabel alloc] initWithFrame:CGRectMake(10, posterImage.image.size.height + 80, 300,200)];
+        // Set Synopsis Body Label
+        UILabel *synopsisText = [[UILabel alloc] init];
         [synopsisText setBackgroundColor:[UIColor clearColor]];
         [synopsisText setFont:defaultFont];
         [synopsisText setOpaque:NO];
         synopsisText.lineBreakMode = UILineBreakModeWordWrap;
         synopsisText.numberOfLines = 0;
-        NSString * synopsisLabelText = [detailViewDictionary objectForKey:@"synopsis"];
+        NSString * synopsisLabelText = detailSynopsis;
         [synopsisText setText:synopsisLabelText];
         
+        CGSize synopsisTextSize = [synopsisLabelText sizeWithFont:defaultFont
+                                    constrainedToSize:CGSizeMake(300.0f,CGFLOAT_MAX)
+                                        lineBreakMode:UILineBreakModeWordWrap];
+        [synopsisText setFrame:CGRectMake(padding, synopsis.frame.origin.y + synopsisSize.height + 20, 300.0f, synopsisTextSize.height)];
+        
+        
+        // Add the labels
         [detailScrollView addSubview:synopsisText];
         [detailScrollView addSubview:synopsis];
         
-        CGSize size = [synopsisLabelText sizeWithFont:defaultFont
-                                    constrainedToSize:CGSizeMake(300.0f,CGFLOAT_MAX)
-                                        lineBreakMode:UILineBreakModeWordWrap];
-        NSLog(@"%@",synopsisLabelText);
-        NSLog(@"%f",size.height);
+        
+        
+        
+        
+        
+        // Add the scroll view
         [self.view addSubview:detailScrollView];
         
         
     }
     return self;
+}
+- (void)addToFavorites:(id)sender{
+    NSLog(@"Adding to Faves");
+    [movieController setIdFavorite:detailID toValue:YES];
+    faveButton.enabled = NO;
+    [faveButton setTitle:@"Is a Favorite" forState:UIControlStateNormal];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -139,12 +186,26 @@
 }
 - (void)tweetLink:(id)sender
 {
+    //Set vars...
+    NSString *detailSiteLink;
+    NSString *detailFilmTitle;
+    
+    // Set Dictionary for use in Object
+    if (needFaves){
+        detailSiteLink = [detailMovie siteLink];
+        detailFilmTitle = [detailMovie title];
+    }else{
+        detailSiteLink= [detailViewDictionary objectForKey:@"siteLink"];
+        detailFilmTitle = [detailViewDictionary objectForKey:@"filmTitle"];
+    }
+    
     // Create the view controller
     TWTweetComposeViewController *twitter = [[TWTweetComposeViewController alloc] init];
     
+    
     // Optional: set an image, url and initial text
-    [twitter addURL:[NSURL URLWithString:[NSString stringWithString:[detailViewDictionary objectForKey:@"siteLink"]]]];
-    [twitter setInitialText:[NSString stringWithFormat:@"Check out: %@!!",[detailViewDictionary objectForKey:@"filmTitle"],[detailViewDictionary objectForKey:@"siteLink"]]];
+    [twitter addURL:[NSURL URLWithString:[NSString stringWithString:detailSiteLink]]];
+    [twitter setInitialText:[NSString stringWithFormat:@"Check out: %@!!",detailFilmTitle,detailSiteLink]];
     
     // Show the controller
     [self presentModalViewController:twitter animated:YES];
@@ -202,7 +263,23 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"DETAIL _ _ _ APPPPEEEEEAAAARRRREEEDD");
+    BOOL isFavoriteItem = [movieController checkIfFavorite:detailID];
+    if(isFavoriteItem){
+        NSLog(@"is fave");
+        faveButton.enabled = NO;
+        [faveButton setTitle:@"Is a Favorite" forState:UIControlStateNormal];
+    }else{
+        NSLog(@"isnt fave");
+        faveButton.enabled = YES;
+        [faveButton setTitle:@"Click to Favorite" forState:UIControlStateNormal];
+    }
+    
+    [super viewWillAppear:animated];
 
+}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations

@@ -9,11 +9,40 @@
 #import "TableViewController.h"
 #import "DetailViewController.h"
 #import "CustomMovieCell.h"
+#import "MovieController.h"
 
 @implementation TableViewController
 
-@synthesize tableArray;
-
+@synthesize tableArray, myFavorites, currentMovie;
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        needFavorites = NO;
+    }
+    return self;
+}
+- (id)initWithFavorites:(MovieController *)fave
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        needFavorites = YES;
+        myFavorites = fave;
+    }
+    return self;
+}
+- (id)initWithMovieController:(MovieController *)movieController
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        needFavorites = NO;
+        myFavorites = movieController;
+    }
+    return self;
+}
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -46,12 +75,16 @@
     NSLog(@"Table view has launched.");
     tableArray = [[NSArray alloc] init];
     numberOfItems = [tableArray count];
-
+    if(needFavorites){
+        [self loadFavorites];
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    if(needFavorites){
+        self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    }
 }
 - (void)viewDidUnload
 {
@@ -62,12 +95,20 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"APPPPEEEEEAAAARRRREEEDD");
     [super viewWillAppear:animated];
+    if(needFavorites){
+        tableArray = [myFavorites getMoviesFromCoreData];
+        numberOfItems = [tableArray count];
+        [self.tableView reloadData];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+
     [super viewDidAppear:animated];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -78,6 +119,12 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+}
+- (void)loadFavorites
+{
+    tableArray = [myFavorites getMoviesFromCoreData];
+    numberOfItems = [tableArray count];
+    [self.tableView reloadData];
 }
 -(void) movieListUpdated: (NSArray *)movieArray
 {
@@ -164,18 +211,38 @@
         cell = [[CustomMovieCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
-    NSDictionary *currentObject = [tableArray objectAtIndex: indexPath.row];
-    NSLog(@"%@",[currentObject objectForKey:@"filmTitle"]);
+    if(needFavorites){
+        
+    NSLog(@"-------oioioioioioiioio-------");
+    NSLog(@"%@",tableArray);
+    NSLog(@"-------oioioioioioiioio-------");
+    NSLog(@"%i",[tableArray count]);
+    NSLog(@"-------oioioioioioiioio-------");
+    }
     
-    NSString *getImagePath;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    getImagePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Temp"];
-    getImagePath = [getImagePath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-small.png",[currentObject objectForKey:@"filmId"]]];
+    if(needFavorites){
+        Movie *currentObject = [tableArray objectAtIndex:[indexPath row]];
+        NSLog(@"%@",currentObject);
+        NSLog(@"-------oioioioioioiioio-------");
+        NSString *getImagePath;
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        getImagePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Favorite"];
+        getImagePath = [getImagePath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-small.png",[currentObject id]]];
+        
+        UIImage *image = [UIImage imageWithContentsOfFile:getImagePath];
+        
+        [cell setMovieCellName:[NSString stringWithFormat:@"%@", [currentObject title]] andMovieImage:image andCriticRatingValue:[currentObject criticsScore] andMPAA:[currentObject mpaaRating]];
+    }else{
+        NSDictionary *currentObject = [tableArray objectAtIndex:[indexPath row]];
+        NSString *getImagePath;
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        getImagePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"Temp"];
+        getImagePath = [getImagePath stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@-small.png",[currentObject objectForKey:@"filmId"]]];
 
-    UIImage *image = [UIImage imageWithContentsOfFile:getImagePath];
+        UIImage *image = [UIImage imageWithContentsOfFile:getImagePath];
 
-    [cell setMovieCellName:[NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]] andMovieImage:image andCriticRatingValue:[currentObject objectForKey:@"criticsScore"] andMPAA:[currentObject objectForKey:@"mpaaRating"]];
-    
+        [cell setMovieCellName:[NSString stringWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]] andMovieImage:image andCriticRatingValue:[currentObject objectForKey:@"criticsScore"] andMPAA:[currentObject objectForKey:@"mpaaRating"]];
+    }
     
     return cell;
 }
@@ -191,6 +258,7 @@
     
     return labelSize.height + 50;
 }
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -200,19 +268,38 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        @try 
+        {   
+            numberOfItems--;
+            self.currentMovie = [tableArray objectAtIndex:[indexPath row]];
+            NSLog(@"mmmmmmmmmmm %i",numberOfItems);
+            NSLog(@"%@",self.currentMovie);
+            //[self.currentMovie setIsFavorite: 0];
+            [myFavorites setMovieFavorite:self.currentMovie toValue:NO];
+            [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
+        }
+        @catch (NSException *exception) 
+        {
+            // Print exception information
+            NSLog(@"NSException caught" );
+            NSLog(@"Name: %@", exception.name);
+            NSLog(@"Reason: %@", exception.reason);
+            return;
+        }
+        
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -237,8 +324,13 @@
     // Navigation logic may go here. Create and push another view controller.
     //NSDictionary *currentObject = [tableArray objectAtIndex: indexPath.row];
 //    DetailViewController *detailViewController = [[DetailViewController alloc] initWithTitle:[[NSString alloc] initWithFormat:@"%@", [currentObject objectForKey:@"filmTitle"]]];
-    DetailViewController *detailViewController = [[DetailViewController alloc] initWithNSDictionary:[tableArray objectAtIndex: indexPath.row]];
-     // ...
+    DetailViewController *detailViewController;
+    if(needFavorites){
+        NSLog(@"%@",[tableArray objectAtIndex: indexPath.row]);
+        detailViewController = [[DetailViewController alloc] initWithNSDictionary:[tableArray objectAtIndex: indexPath.row] loadFromCoreData:YES withMovieController:myFavorites];
+    } else{
+        detailViewController = [[DetailViewController alloc] initWithNSDictionary:[tableArray objectAtIndex: indexPath.row] loadFromCoreData:NO withMovieController:myFavorites];
+    }// ...
      // Pass the selected object to the new view controller.
 
     [self.navigationController pushViewController:detailViewController animated:YES];
