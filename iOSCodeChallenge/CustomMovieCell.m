@@ -40,7 +40,6 @@
     CGRect bounds = [[self contentView] bounds];
     
     float h = bounds.size.height;
-    float w = bounds.size.width;
     float valueWidth = 180.0;
     
     CGRect imageFrame = CGRectMake(inset, inset, imageView.image.size.width, imageView.image.size.height);
