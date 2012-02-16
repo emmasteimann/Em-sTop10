@@ -26,6 +26,7 @@
 		F5B3F74F14E22F7300F2B644 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F74E14E22F7300F2B644 /* main.m */; };
 		F5B3F75314E22F7300F2B644 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B3F75214E22F7300F2B644 /* AppDelegate.m */; };
 		F5C14D6A14EC317800B3C4C9 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C14D6914EC317800B3C4C9 /* Movie.m */; };
+		F5C14D7514ECE58300B3C4C9 /* Divider.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C14D7414ECE58200B3C4C9 /* Divider.m */; };
 		F5E8D70C14E9D26E00B7C46B /* Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D70214E9D26E00B7C46B /* Facebook.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F5E8D70D14E9D26E00B7C46B /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F5E8D70414E9D26E00B7C46B /* FBDialog.bundle */; };
 		F5E8D70E14E9D26E00B7C46B /* FBDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E8D70614E9D26E00B7C46B /* FBDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -74,6 +75,8 @@
 		F5B3F75514E22F7300F2B644 /* iOSCodeChallenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iOSCodeChallenge.xcdatamodel; sourceTree = "<group>"; };
 		F5C14D6814EC317800B3C4C9 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		F5C14D6914EC317800B3C4C9 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		F5C14D7314ECE58100B3C4C9 /* Divider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Divider.h; sourceTree = "<group>"; };
+		F5C14D7414ECE58200B3C4C9 /* Divider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Divider.m; sourceTree = "<group>"; };
 		F5E8D70114E9D26E00B7C46B /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Facebook.h; path = Facebook/Facebook.h; sourceTree = "<group>"; };
 		F5E8D70214E9D26E00B7C46B /* Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Facebook.m; path = Facebook/Facebook.m; sourceTree = "<group>"; };
 		F5E8D70314E9D26E00B7C46B /* FBConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBConnect.h; path = Facebook/FBConnect.h; sourceTree = "<group>"; };
@@ -254,6 +257,8 @@
 			children = (
 				F5E8D74014EB5D2500B7C46B /* ImageCache.h */,
 				F5E8D74114EB5D2500B7C46B /* ImageCache.m */,
+				F5C14D7314ECE58100B3C4C9 /* Divider.h */,
+				F5C14D7414ECE58200B3C4C9 /* Divider.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 				F5E8D72514EA142600B7C46B /* SBJsonWriter.m in Sources */,
 				F5E8D74214EB5D2700B7C46B /* ImageCache.m in Sources */,
 				F5C14D6A14EC317800B3C4C9 /* Movie.m in Sources */,
+				F5C14D7514ECE58300B3C4C9 /* Divider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

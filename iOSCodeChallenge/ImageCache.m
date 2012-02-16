@@ -22,8 +22,9 @@
     }
     return self;
 }
+#pragma mark - Create Favorites Directory
 - (void)createFavoriteDirectoryIfNotExists{
-    
+    // Creates a favorites directory
     NSString *path;
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	path = [[paths objectAtIndex:0] stringByAppendingPathComponent:faveDirectory];
@@ -43,8 +44,9 @@
         return;
     }
 }
+#pragma mark - Create Temp Directory
 - (void)createDirectoryIfNotExists{
-   
+   // Creats a temp directory
     NSString *path;
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	path = [[paths objectAtIndex:0] stringByAppendingPathComponent:tempDirectory];
@@ -60,6 +62,7 @@
 			NSLog(@"Create directory error: %@", error);
 		}
 	} else {
+        // Clear Temp directory if older than dayToLive
         NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path
                                                                  error:nil];
         NSDate* dateCreated = [attributes objectForKey:NSFileCreationDate];
@@ -83,11 +86,10 @@
         }
     }
 }
-
+#pragma mark - Cache an Image
 - (void) cacheImage: (NSString *) ImageURLString nameOfImage:(NSString *)nameString withExtension:(NSString *)extension
 {
     NSLog(@"Cache method launched...");
-    
     NSURL *ImageURL = [NSURL URLWithString: ImageURLString];
     
     NSString *path;
@@ -105,6 +107,7 @@
 
     }
 }
+#pragma mark - Check days old
 -(int)howManyDaysHavePast:(NSDate*)lastDate today:(NSDate*)today {
 	NSDate *startDate = lastDate;
 	NSDate *endDate = today;

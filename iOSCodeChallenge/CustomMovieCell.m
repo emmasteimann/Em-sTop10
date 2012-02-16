@@ -37,6 +37,7 @@
     }
     return self;
 }
+#pragma mark - layoutSubviews after content loaded
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -81,6 +82,7 @@
     
     UIFont *myFont = [UIFont boldSystemFontOfSize:24.0];
     movieName.font = myFont;
+    movieName.minimumFontSize = 14.0;
     //movieName.lineBreakMode = UILineBreakModeWordWrap;
     //movieName.numberOfLines = 0;
     
@@ -97,6 +99,7 @@
     float progess = [ratingValue floatValue];
     [ratingBar setProgress:(progess/ 100)];
 }
+#pragma mark - Set Cell information
 - (void)setMovieCellName:(NSString *)nameOfMovie andMovieImage:(UIImage *)posterImage andCriticRatingValue:(NSString *)criticRatingValue andMPAA:(NSString *)mpaa
 {
     [movieName setText:nameOfMovie];

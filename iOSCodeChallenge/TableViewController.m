@@ -120,12 +120,14 @@
 {
     [super viewDidDisappear:animated];
 }
+#pragma mark - Load Core Data favorite items
 - (void)loadFavorites
 {
     tableArray = [myFavorites getMoviesFromCoreData];
     numberOfItems = [tableArray count];
     [self.tableView reloadData];
 }
+#pragma mark - Delegate method for Movie List loaded
 -(void) movieListUpdated: (NSArray *)movieArray
 {
     tableArray = movieArray;
@@ -211,14 +213,6 @@
         cell = [[CustomMovieCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     cell.accessoryType =  UITableViewCellAccessoryDisclosureIndicator;
-    if(needFavorites){
-        
-    NSLog(@"-------oioioioioioiioio-------");
-    NSLog(@"%@",tableArray);
-    NSLog(@"-------oioioioioioiioio-------");
-    NSLog(@"%i",[tableArray count]);
-    NSLog(@"-------oioioioioioiioio-------");
-    }
     
     if(needFavorites){
         Movie *currentObject = [tableArray objectAtIndex:[indexPath row]];
@@ -267,7 +261,14 @@
     return YES;
 }
 */
-
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Detemine if it's in editing mode
+    if (needFavorites) {
+        return UITableViewCellEditingStyleDelete;
+    }
+    NSLog(@"Editing should be turned off...");
+    return UITableViewCellEditingStyleNone;
+}
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

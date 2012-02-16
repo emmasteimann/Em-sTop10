@@ -15,7 +15,7 @@
 @implementation MovieController
 
 @synthesize managedObjectContext, movieArray, delegate, imageCache; 
-
+#pragma mark - Initialize with an Image Cache
 - (id) initWithImageCache:(ImageCache *)appImageCache;
 {
     self = [super init];
@@ -29,7 +29,7 @@
     }
     return self;
 }
-
+#pragma mark - Delegate Method after response
 - (void)fetchedData:(NSData *)responseData {
     NSLog(@"Request complete. Handling data."); 
     //NSString *jsonData = [[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding];
@@ -94,6 +94,7 @@
     NSLog(@"%d",[movieArray count]);
     [delegate movieListUpdated:movieArray];
 }
+#pragma mark - Write the images for item
 -(void) writeSmallImageToDirectory:(NSString *)imageURL andBigImageToDirectory:(NSString *)bigImageURL imageURLwithNameOf:(NSString *)nameString
 {
     //Small Image
@@ -103,6 +104,7 @@
     [imageCache cacheImage:bigImageURL nameOfImage:nameString withExtension:@"big"];
     
 }
+#pragma mark - Load item to Core Data
 -(void) loadToCoreData:(NSDictionary *)dataToLoad
 {
     NSEntityDescription *entity;
@@ -181,7 +183,7 @@
         
     }
 }
-
+#pragma mark - Get all records from Movie table
 - (NSMutableArray*)getMoviesFromCoreData {
 	
     NSLog(@"Checking for favorites");
@@ -232,6 +234,7 @@
 	NSLog(@"%@",movieArray);
     return movieArray;
 }
+#pragma mark - Set FavoriteMovie
 - (void)setMovieFavorite:(Movie *)movieToSet toValue:(BOOL)value {
     
 	NSLog(@"****************************************");
@@ -292,6 +295,7 @@
     }
     
 }
+#pragma mark - Check if movie is in favorites
 -(BOOL)checkIfFavorite:(NSString *)movieId{
     NSEntityDescription *entity;
     @try 
@@ -329,6 +333,7 @@
     }
 
 }
+#pragma mark - Set favorite based on ID
 - (void)setIdFavorite:(NSString *)movieToSet toValue:(BOOL)value {
 	NSLog(@"Set Id Favorite Reached");
     NSEntityDescription *entity;
@@ -355,8 +360,6 @@
     NSPredicate *predicate =
     [NSPredicate predicateWithFormat:@"id == %@", movieToSet];
     [request setPredicate:predicate];
-    
-    NSError *requestError = nil;
     
     NSError *error = nil;
 	NSArray *result = [managedObjectContext executeFetchRequest:request error:&error];
@@ -425,6 +428,7 @@
 @end
 
 @implementation NSDictionary(JSONCategories)
+#pragma mark - Specialized methods for NSDicitionary to JSON
 +(NSDictionary*)dictionaryWithContentsOfJSONURLString:(NSString*)urlAddress
 {
     NSData* data = [NSData dataWithContentsOfURL: [NSURL URLWithString: urlAddress] ];

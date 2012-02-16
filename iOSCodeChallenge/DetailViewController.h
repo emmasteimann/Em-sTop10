@@ -20,6 +20,10 @@
     UIScrollView *detailScrollView;
     UIButton *loginButton;
     UIButton *faveButton;
+    UIButton *postButton;
+    NSDictionary *detailCast;
+    NSString *detailSiteLink;
+    NSString *detailFilmTitle;
     BOOL needFaves;
 }
 
@@ -30,5 +34,7 @@
 @property (nonatomic, retain) NSDictionary *detailViewDictionary;
 @property (nonatomic, retain) Movie *detailMovie;
 @property (nonatomic, retain) UIScrollView *detailScrollView;
-
+@property (nonatomic, retain) NSString *detailSiteLink;
+@property (nonatomic, retain) NSString *detailFilmTitle;
+@property (nonatomic, retain) NSDictionary *detailCast;
 @end
